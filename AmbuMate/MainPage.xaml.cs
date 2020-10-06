@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -25,34 +26,43 @@ namespace AmbuMate
             {
                 if (int.TryParse(idEntry.Text.Trim(), out int id))
                 {
+                    try { 
                     //reads the azure sql database and fetches any staff members matching the ID entered by the user
-                    var user = (await App.MobileService.GetTable<Staff>().Where(s => s.ID == id).ToListAsync()).FirstOrDefault();
-                    
-                    if (user != null)
-                    {
-                        Password password = new Password();
-                        if (password.Verify(passwordEntry.Text.Trim(), user.PasswordHash))
-                        {
-                            Staff currentUser = new Staff();
-                            currentUser.ID = user.ID;
-                            currentUser.FirstName = user.FirstName;
-                            currentUser.Surname = user.Surname;
-                            currentUser.Staff_type = user.Staff_type;
-                            currentUser.PasswordHash = user.PasswordHash;
+                    var user = (await App.MobileService.GetTable<staff>().Where(s => s.ID == id).ToListAsync()).FirstOrDefault();
 
-                            await Navigation.PushAsync(new HomePage());
+                        if (user != null)
+                        {
+                            Password password = new Password();
+                            if (password.Verify(passwordEntry.Text.Trim(), user.PasswordHash))
+                            {
+                                //creating an instance of a Staff class with the details of the user who has logged in
+                                staff currentUser = new staff();
+                                currentUser.ID = user.ID;
+                                currentUser.FirstName = user.FirstName;
+                                currentUser.Surname = user.Surname;
+                                currentUser.Staff_type = user.Staff_type;
+                                currentUser.PasswordHash = user.PasswordHash;
+
+                                await Navigation.PushAsync(new HomePage());
+                            }
+                            else
+                            {
+                                await DisplayAlert("Access Denied", "Incorrect Log In Details.", "Ok");
+                                passwordEntry.Text = "";
+                            }
                         }
                         else
                         {
                             await DisplayAlert("Access Denied", "Incorrect Log In Details.", "Ok");
                             passwordEntry.Text = "";
                         }
+
                     }
-                    else
+                    catch(Exception ex)
                     {
-                        await DisplayAlert("Access Denied", "Incorrect Log In Details.", "Ok");
-                        passwordEntry.Text = "";
+                        await DisplayAlert("Error", ex.ToString(), "Ok");
                     }
+                    
                 }
                 else
                 {

@@ -7,11 +7,10 @@ namespace AmbuMate
 {
     public partial class App : Application
     {
-        public static MobileServiceClient MobileService = new MobileServiceClient("https://logintestwebapp.azurewebsites.net");
+        public static MobileServiceClient MobileService = new MobileServiceClient("https://ambumatemobileapp.azurewebsites.net");
         public App()
         {
             InitializeComponent();
-
             MainPage = new NavigationPage( new MainPage());
         }
 

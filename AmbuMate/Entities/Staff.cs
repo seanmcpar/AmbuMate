@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AmbuMate.Entities
 {
-    public class Staff
+    public class staff
     {
         public int ID { get; set; }
         public string FirstName { get; set; }
