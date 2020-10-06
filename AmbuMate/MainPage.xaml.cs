@@ -14,7 +14,6 @@ namespace AmbuMate
         {
             InitializeComponent();
             var assembly = typeof(MainPage);
-
             iconImage.Source = ImageSource.FromResource("AmbuMate.Assets.Images.ambumatelogo.png", assembly);
         }
 
