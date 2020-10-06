@@ -3,8 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AmbuMate.App">
     <Application.Resources>
+        <Color x:Key="DarkBlue">#17224D</Color>
+        <Color x:Key="SecondaryBlue">#007FFF</Color>
+        <Color x:Key="AquaBlue">#19E1E1</Color>
+        <Color x:Key="Purple">#a539ed</Color>
         <Style TargetType="NavigationPage">
-            <Setter Property="BarBackgroundColor" Value="Black"></Setter>
+            <Setter Property="BarBackgroundColor" Value="{StaticResource DarkBlue}"></Setter>
             <Setter Property="BarTextColor" Value="White"></Setter>
         </Style>
     </Application.Resources>

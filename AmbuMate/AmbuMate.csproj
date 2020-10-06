@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -12,11 +12,13 @@
 
   <ItemGroup>
     <None Remove="Assets\Fonts\LilitaOne-Regular.ttf" />
+    <None Remove="Assets\Fonts\pakenham-free.regular.ttf" />
     <None Remove="Assets\Images\ambumatelogo.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Assets\Fonts\LilitaOne-Regular.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\pakenham-free.regular.ttf" />
     <EmbeddedResource Include="Assets\Images\ambumatelogo.png" />
   </ItemGroup>
 
