@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AmbuMate.Entities;
+using AmbuMate.Logic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -17,9 +19,53 @@ namespace AmbuMate
             iconImage.Source = ImageSource.FromResource("AmbuMate.Assets.Images.ambumatelogo.png", assembly);
         }
 
-        private void LogInBtn_Clicked(object sender, EventArgs e)
+        private async void LogInBtn_Clicked(object sender, EventArgs e)
         {
+            if (idEntry.Text != null && passwordEntry.Text != null)
+            {
+                if (int.TryParse(idEntry.Text.Trim(), out int id))
+                {
+                    //reads the azure sql database and fetches any staff members matching the ID entered by the user
+                    var user = (await App.MobileService.GetTable<Staff>().Where(s => s.ID == id).ToListAsync()).FirstOrDefault();
+                    
+                    if (user != null)
+                    {
+                        Password password = new Password();
+                        if (password.Verify(passwordEntry.Text.Trim(), user.PasswordHash))
+                        {
+                            Staff currentUser = new Staff();
+                            currentUser.ID = user.ID;
+                            currentUser.FirstName = user.FirstName;
+                            currentUser.Surname = user.Surname;
+                            currentUser.Staff_type = user.Staff_type;
+                            currentUser.PasswordHash = user.PasswordHash;
 
+                            await Navigation.PushAsync(new HomePage());
+                        }
+                        else
+                        {
+                            await DisplayAlert("Access Denied", "Incorrect Log In Details.", "Ok");
+                            passwordEntry.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        await DisplayAlert("Access Denied", "Incorrect Log In Details.", "Ok");
+                        passwordEntry.Text = "";
+                    }
+                }
+                else
+                {
+                    await DisplayAlert("Access Denied", "Incorrect Log In Details.", "Ok");
+                    passwordEntry.Text = "";
+                }
+
+            }
+            else
+            {
+                await DisplayAlert("Access Denied", "Please enter valid log in credentials.", "Ok");
+            }
         }
+      
     }
 }
