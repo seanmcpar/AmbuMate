@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AmbuMate.MainPage">
+
+    <StackLayout Margin="30,0" VerticalOptions="Center">
+        <Label Text="AmbuMate"
+               HorizontalOptions="CenterAndExpand"
+               FontSize="45"
+               FontFamily="LilitaOne-Regular"
+               FontAttributes="Bold"/>
+        <Image x:Name="iconImage"
+                   Aspect="AspectFit"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="0,0,0,25"/>
+        <Entry x:Name="idEntry"
+               Placeholder="ID"
+               Keyboard="Email"
+               TextColor="Black"/>
+        <Entry x:Name="passwordEntry"
+               Placeholder="password"
+               IsPassword="True"
+               TextColor="Black"/>
+        <Button x:Name="LogInBtn"
+                Text="Log in"
+                Clicked="LogInBtn_Clicked"
+                BackgroundColor="#8DFF11"
+                TextColor="Black"
+                Margin="30,30,30,0"/>
+    </StackLayout>
+
+</ContentPage>
