@@ -6,7 +6,7 @@
         <Color x:Key="DarkBlue">#17224D</Color>
         <Color x:Key="SecondaryBlue">#007FFF</Color>
         <Color x:Key="AquaBlue">#19E1E1</Color>
-        <Color x:Key="Purple">#a539ed</Color>
+        <Color x:Key="Purple">#8a00db</Color>
         <Style TargetType="NavigationPage">
             <Setter Property="BarBackgroundColor" Value="{StaticResource DarkBlue}"></Setter>
             <Setter Property="BarTextColor" Value="White"></Setter>

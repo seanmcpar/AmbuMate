@@ -4,6 +4,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 [assembly: ExportFont("LilitaOne-Regular.ttf")]
 [assembly: ExportFont("pakenham-free.regular.ttf")]
+[assembly: ExportFont("Raleway-SemiBold.ttf")]
+[assembly: ExportFont("Raleway-Regular.ttf")]
 namespace AmbuMate
 {
     public partial class App : Application

@@ -15,6 +15,12 @@ namespace AmbuMate
         public HomePage()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, false);
+            var assembly = typeof(HomePage);
+            ShiftBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.shiftlogo.png", assembly);
+            VehicleBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.vehiclelogo.png", assembly);
+            KitBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.kitlogo.png", assembly);
+            PatientsBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.patientlogo.png", assembly);
         }
     }
 }

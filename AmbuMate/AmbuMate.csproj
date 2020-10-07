@@ -13,13 +13,25 @@
   <ItemGroup>
     <None Remove="Assets\Fonts\LilitaOne-Regular.ttf" />
     <None Remove="Assets\Fonts\pakenham-free.regular.ttf" />
+    <None Remove="Assets\Fonts\Raleway-Regular.ttf" />
+    <None Remove="Assets\Fonts\Raleway-SemiBold.ttf" />
     <None Remove="Assets\Images\ambumatelogo.png" />
+    <None Remove="Assets\Images\kitlogo.png" />
+    <None Remove="Assets\Images\patientlogo.png" />
+    <None Remove="Assets\Images\shiftlogo.png" />
+    <None Remove="Assets\Images\vehiclelogo.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Assets\Fonts\LilitaOne-Regular.ttf" />
     <EmbeddedResource Include="Assets\Fonts\pakenham-free.regular.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Raleway-Regular.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Raleway-SemiBold.ttf" />
     <EmbeddedResource Include="Assets\Images\ambumatelogo.png" />
+    <EmbeddedResource Include="Assets\Images\kitlogo.png" />
+    <EmbeddedResource Include="Assets\Images\patientlogo.png" />
+    <EmbeddedResource Include="Assets\Images\shiftlogo.png" />
+    <EmbeddedResource Include="Assets\Images\vehiclelogo.png" />
   </ItemGroup>
 
   <ItemGroup>
