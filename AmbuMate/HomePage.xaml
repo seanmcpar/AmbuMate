@@ -10,9 +10,16 @@
                HorizontalOptions="End"
                TextColor="White"
                FontSize="25"
+               Padding="15"
                FontFamily="Raleway-Regular.ttf"
-               Padding="15"/>
+               />
     </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+                     IconImageSource="optionsbutton.png"
+                     Text="Options"
+                     Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
     <Grid>
@@ -29,23 +36,27 @@
                      
                      Grid.Column="0"
                      HorizontalOptions="FillAndExpand"
-                     VerticalOptions="FillAndExpand"/>
+                     VerticalOptions="FillAndExpand"
+                     Clicked="ShiftBtn_Clicked"/>
         <ImageButton x:Name="VehicleBtn"
                      BackgroundColor="White"
                      Grid.Column="1"
                      HorizontalOptions="FillAndExpand"
-                     VerticalOptions="FillAndExpand"/>
+                     VerticalOptions="FillAndExpand"
+                     Clicked="VehicleBtn_Clicked"/>
         <ImageButton x:Name="KitBtn"
                      BackgroundColor="White"
                      Grid.Row="1"
                      HorizontalOptions="FillAndExpand"
-                     VerticalOptions="FillAndExpand"/>
+                     VerticalOptions="FillAndExpand"
+                     Clicked="KitBtn_Clicked"/>
         <ImageButton x:Name="PatientsBtn"
                      BackgroundColor="White"
                      Grid.Column="1"
                      Grid.Row="1"
                      HorizontalOptions="FillAndExpand"
-                     VerticalOptions="FillAndExpand"/>
+                     VerticalOptions="FillAndExpand"
+                     Clicked="PatientsBtn_Clicked"/>
     </Grid>
     </StackLayout>
 </ContentPage>

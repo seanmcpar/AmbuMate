@@ -17,8 +17,11 @@
     <None Remove="Assets\Fonts\Raleway-SemiBold.ttf" />
     <None Remove="Assets\Images\ambumatelogo.png" />
     <None Remove="Assets\Images\kitlogo.png" />
+    <None Remove="Assets\Images\logoutbutton.png" />
+    <None Remove="Assets\Images\optionsbutton.png" />
     <None Remove="Assets\Images\patientlogo.png" />
     <None Remove="Assets\Images\shiftlogo.png" />
+    <None Remove="Assets\Images\syncbutton.png" />
     <None Remove="Assets\Images\vehiclelogo.png" />
   </ItemGroup>
 
@@ -29,8 +32,11 @@
     <EmbeddedResource Include="Assets\Fonts\Raleway-SemiBold.ttf" />
     <EmbeddedResource Include="Assets\Images\ambumatelogo.png" />
     <EmbeddedResource Include="Assets\Images\kitlogo.png" />
+    <EmbeddedResource Include="Assets\Images\logoutbutton.png" />
+    <EmbeddedResource Include="Assets\Images\optionsbutton.png" />
     <EmbeddedResource Include="Assets\Images\patientlogo.png" />
     <EmbeddedResource Include="Assets\Images\shiftlogo.png" />
+    <EmbeddedResource Include="Assets\Images\syncbutton.png" />
     <EmbeddedResource Include="Assets\Images\vehiclelogo.png" />
   </ItemGroup>
 
@@ -45,6 +51,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="KitPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="OptionsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="PatientsPage.xaml">

@@ -15,6 +15,7 @@ namespace AmbuMate
         public VehiclePage()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, true);
         }
     }
 }

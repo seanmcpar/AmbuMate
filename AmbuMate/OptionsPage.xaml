@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AmbuMate.OptionsPage">
+    <NavigationPage.TitleView>
+        <Label Text="Options"
+               FontFamily="Raleway-Regular.ttf"
+               HorizontalOptions="End"
+               TextColor="White"
+               FontSize="30"
+               Padding="15"/>
+    </NavigationPage.TitleView>
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="200" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <ImageButton x:Name="LogOutBtn"
+                     BackgroundColor="White"
+                     Grid.Column="0"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"/>
+            <ImageButton x:Name="SyncBtn"
+                     BackgroundColor="White"
+                     Grid.Column="1"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"/>
+
+        </Grid>
+    </StackLayout>
+</ContentPage>

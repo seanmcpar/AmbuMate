@@ -10,11 +10,14 @@ using Xamarin.Forms.Xaml;
 namespace AmbuMate
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ShiftPage : ContentPage
+    public partial class OptionsPage : ContentPage
     {
-        public ShiftPage()
+        public OptionsPage()
         {
+            var assembly = typeof(OptionsPage);
             InitializeComponent();
+            SyncBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.syncbutton.png", assembly);
+            LogOutBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.logoutbutton.png", assembly);
             NavigationPage.SetHasBackButton(this, true);
         }
     }

@@ -15,6 +15,7 @@ namespace AmbuMate
         public PatientsPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, true);
         }
     }
 }

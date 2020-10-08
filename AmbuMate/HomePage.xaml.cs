@@ -25,5 +25,30 @@ namespace AmbuMate
             currentUserName.Text = currentUser.FirstName[0].ToString() + ". " + currentUser.Surname;
             
         }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new OptionsPage());
+        }
+
+        private void VehicleBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new VehiclePage());
+        }
+
+        private void ShiftBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ShiftPage());
+        }
+
+        private void KitBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new KitPage());
+        }
+
+        private void PatientsBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PatientsPage());
+        }
     }
 }

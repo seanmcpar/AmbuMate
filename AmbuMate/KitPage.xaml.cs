@@ -15,6 +15,7 @@ namespace AmbuMate
         public KitPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, true);
         }
     }
 }
