@@ -33,7 +33,6 @@
         </Grid.ColumnDefinitions>
         <ImageButton x:Name="ShiftBtn"
                      BackgroundColor="White"
-                     
                      Grid.Column="0"
                      HorizontalOptions="FillAndExpand"
                      VerticalOptions="FillAndExpand"

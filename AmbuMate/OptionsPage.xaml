@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AmbuMate.OptionsPage">
+             x:Class="AmbuMate.OptionsPage"
+             BackgroundColor="White">
     <NavigationPage.TitleView>
         <Label Text="Options"
                FontFamily="Raleway-Regular.ttf"
@@ -20,17 +21,18 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <ImageButton x:Name="LogOutBtn"
+            
+            <ImageButton x:Name="SyncBtn"
                      BackgroundColor="White"
                      Grid.Column="0"
                      HorizontalOptions="FillAndExpand"
                      VerticalOptions="FillAndExpand"/>
-            <ImageButton x:Name="SyncBtn"
+            <ImageButton x:Name="LogOutBtn"
                      BackgroundColor="White"
                      Grid.Column="1"
                      HorizontalOptions="FillAndExpand"
-                     VerticalOptions="FillAndExpand"/>
-
+                     VerticalOptions="FillAndExpand"
+                         Clicked="LogOutBtn_Clicked"/>
         </Grid>
     </StackLayout>
 </ContentPage>

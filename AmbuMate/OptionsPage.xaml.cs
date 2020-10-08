@@ -20,5 +20,10 @@ namespace AmbuMate
             LogOutBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.logoutbutton.png", assembly);
             NavigationPage.SetHasBackButton(this, true);
         }
+
+        private void LogOutBtn_Clicked(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new NavigationPage( new MainPage());
+        }
     }
 }

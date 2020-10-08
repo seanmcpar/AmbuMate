@@ -45,8 +45,8 @@ namespace AmbuMate
                                 currentUser.Surname = user.Surname;
                                 currentUser.Staff_type = user.Staff_type;
                                 currentUser.PasswordHash = user.PasswordHash;
-
-                                await Navigation.PushAsync(new HomePage(currentUser));
+                                App.Current.MainPage = new NavigationPage( new HomePage(currentUser));
+                                //await Navigation.PushAsync(new HomePage(currentUser));
                             }
                             else
                             {
