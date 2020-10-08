@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -13,11 +14,14 @@ namespace AmbuMate
 {
     public partial class MainPage : ContentPage
     {
+        public staff currentUser = new staff();
+
         public MainPage()
         {
             InitializeComponent();
             var assembly = typeof(MainPage);
             iconImage.Source = ImageSource.FromResource("AmbuMate.Assets.Images.ambumatelogo.png", assembly);
+            
         }
 
         private async void LogInBtn_Clicked(object sender, EventArgs e)
@@ -36,14 +40,13 @@ namespace AmbuMate
                             if (password.Verify(passwordEntry.Text.Trim(), user.PasswordHash))
                             {
                                 //creating an instance of a Staff class with the details of the user who has logged in
-                                staff currentUser = new staff();
                                 currentUser.ID = user.ID;
                                 currentUser.FirstName = user.FirstName;
                                 currentUser.Surname = user.Surname;
                                 currentUser.Staff_type = user.Staff_type;
                                 currentUser.PasswordHash = user.PasswordHash;
 
-                                await Navigation.PushAsync(new HomePage());
+                                await Navigation.PushAsync(new HomePage(currentUser));
                             }
                             else
                             {
