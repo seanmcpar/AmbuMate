@@ -11,5 +11,20 @@
             <Setter Property="BarBackgroundColor" Value="{StaticResource DarkBlue}"></Setter>
             <Setter Property="BarTextColor" Value="White"></Setter>
         </Style>
+        <Style x:Key="EntryStyle" TargetType="Entry">
+            <Setter Property="FontFamily" Value="Raleway-Regular"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="Raleway-Regular"/>
+            <Setter Property="TextColor" Value="{StaticResource DarkBlue}"/>
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="Margin" Value="5,5,0,0"/>
+        </Style>
+        <Style x:Key="PickerStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="Raleway-Regular"/>
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="Margin" Value="5,5,0,0"/>
+        </Style>
     </Application.Resources>
 </Application>

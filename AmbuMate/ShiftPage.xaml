@@ -12,9 +12,57 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Shifts Page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Style="{StaticResource LabelStyle}"
+                   Text="Crew IDs:"/>
+            <Entry x:Name="AttendantIDEntry"
+                   Style="{StaticResource EntryStyle}"
+                   Placeholder="Attendant ID"
+                   Keyboard="Numeric"/>
+            <Entry x:Name="DriverIDEntry"
+                   Style="{StaticResource EntryStyle}"
+                   Placeholder="Driver ID"
+                   Keyboard="Numeric"/>
+            <Label Style="{StaticResource LabelStyle}"
+                   Text="Shift Type:"/>
+            <Picker x:Name="ShiftTypePicker"
+                Title="Select a Shift Type...">
+                <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Patient Transfers</x:String>
+                    <x:String>Doctor's Calls</x:String>
+                    <x:String>Paramedic</x:String>
+                    <x:String>HCP</x:String>
+                    <x:String>First Aid</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Label Style="{StaticResource LabelStyle}"
+                   Text="Shift Date:"/>
+            <DatePicker x:Name="ShiftDate"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="300" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Start Time:" Style="{StaticResource LabelStyle}"
+                       Grid.Column="0"/>
+                <TimePicker x:Name="ShiftStartTime"
+                            Grid.Column="1"/>
+                <Label Text="End Time:" Style="{StaticResource LabelStyle}"
+                       Grid.Row="1"/>
+                <TimePicker x:Name="ShiftEndTime"
+                            Grid.Column="1"
+                            Grid.Row="1"/>
+            </Grid>
+            <Label Style="{StaticResource LabelStyle}"
+                   Text="Notes:"/>
+            <Editor x:Name="ShiftNotes"
+                    Placeholder="Enter shift notes here..."
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

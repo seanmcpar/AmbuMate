@@ -14,7 +14,7 @@ namespace AmbuMate
 {
     public partial class MainPage : ContentPage
     {
-        public staff currentUser = new staff();
+        public Staff currentUser = new Staff();
 
         public MainPage()
         {
@@ -32,7 +32,7 @@ namespace AmbuMate
                 {
                     try { 
                     //reads the azure sql database and fetches any staff members matching the ID entered by the user
-                    var user = (await App.MobileService.GetTable<staff>().Where(s => s.ID == id).ToListAsync()).FirstOrDefault();
+                    var user = (await App.MobileService.GetTable<Staff>().Where(s => s.ID == id).ToListAsync()).FirstOrDefault();
 
                         if (user != null)
                         {
