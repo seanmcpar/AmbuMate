@@ -15,6 +15,7 @@ namespace AmbuMate
     public partial class MainPage : ContentPage
     {
         public Staff currentUser = new Staff();
+        public Shift currentShift = new Shift();
 
         public MainPage()
         {
@@ -45,7 +46,7 @@ namespace AmbuMate
                                 currentUser.Surname = user.Surname;
                                 currentUser.Staff_type = user.Staff_type;
                                 currentUser.PasswordHash = user.PasswordHash;
-                                App.Current.MainPage = new NavigationPage( new HomePage(currentUser));
+                                App.Current.MainPage = new NavigationPage( new HomePage(currentUser, currentShift));
                                 //await Navigation.PushAsync(new HomePage(currentUser));
                             }
                             else

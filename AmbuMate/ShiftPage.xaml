@@ -23,6 +23,23 @@
                    Placeholder="Driver ID"
                    Keyboard="Numeric"/>
             <Label Style="{StaticResource LabelStyle}"
+                   Text="Crew Number:"/>
+            <Picker x:Name="CrewNoPicker"
+                Title="Select Crew Number...">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>1</x:String>
+                        <x:String>2</x:String>
+                        <x:String>3</x:String>
+                        <x:String>4</x:String>
+                        <x:String>5</x:String>
+                        <x:String>6</x:String>
+                        <x:String>7</x:String>
+                        <x:String>8</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Label Style="{StaticResource LabelStyle}"
                    Text="Shift Type:"/>
             <Picker x:Name="ShiftTypePicker"
                 Title="Select a Shift Type...">
@@ -57,7 +74,8 @@
                             Grid.Row="1"/>
             </Grid>
             <Label Style="{StaticResource LabelStyle}"
-                   Text="Notes:"/>
+                   Text="Notes:"
+                   Padding="0,5,0,0"/>
             <Editor x:Name="ShiftNotes"
                     Placeholder="Enter shift notes here..."
                     VerticalOptions="FillAndExpand"

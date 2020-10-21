@@ -22,10 +22,10 @@ namespace AmbuMate
         //2=staff details + shift details are stored
         //3=
         //4=
-        public int currentAppState;
+        //public int currentAppState;
 
         //initialises the HomePage when the user logs in and has not filled in any pages
-        public HomePage(Staff currentUser)
+        /*public HomePage(Staff currentUser)
         {
             currentAppState = 1;
             currentUserNav = currentUser;
@@ -39,15 +39,14 @@ namespace AmbuMate
             KitBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.kitlogo.png", assembly);
             PatientsBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.patientlogo.png", assembly);
             currentUserName.Text = currentUser.FirstName[0].ToString() + ". " + currentUser.Surname; 
-        }
+        }*/
 
         //initialises the HomePage when the user has entered shift details
         public HomePage(Staff currentUser, Shift currentShift)
         {
-            currentAppState = 2;
             currentUserNav = currentUser;
             currentShiftNav = currentShift;
-            InitializeComponent();
+            InitializeComponent(); 
             NavigationPage.SetHasBackButton(this, false);
 
             //set button image sources
@@ -71,14 +70,7 @@ namespace AmbuMate
 
         private void ShiftBtn_Clicked(object sender, EventArgs e)
         {
-            if (currentAppState==1)
-            {
-                Navigation.PushAsync(new ShiftPage(currentUserNav));
-            }
-            else if(currentAppState==2)
-            {
                 Navigation.PushAsync(new ShiftPage(currentUserNav, currentShiftNav));
-            }
         }
 
         private void KitBtn_Clicked(object sender, EventArgs e)

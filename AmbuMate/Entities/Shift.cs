@@ -8,7 +8,8 @@ namespace AmbuMate.Entities
     {
         public int AttendantID { get; set; }
         public int DriverID { get; set; }
-        public object ShiftType { get; set; }
+        public int CrewNumber { get; set; }
+        public string ShiftType { get; set; }
         public DateTime ShiftDate { get; set; }
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
