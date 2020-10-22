@@ -17,5 +17,10 @@ namespace AmbuMate
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, true);
         }
+
+        private void FuelSlider_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            FuelLabel.Text = "Fuel: " + Convert.ToInt32(FuelSlider.Value) + "%";
+        }
     }
 }
