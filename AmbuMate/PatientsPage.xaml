@@ -7,7 +7,10 @@
              mc:Ignorable="d"
              x:Class="AmbuMate.PatientsPage"
             BarBackgroundColor="{StaticResource SecondaryBlue}">
-    <!--Pages can be added as references or inline-->
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Text="Add"
+                     IconImageSource="addpatient.png"/>
+    </TabbedPage.ToolbarItems>
     <local:InactivePatientsPage Title="Inactive"/>
     <local:ActivePatientsPage Title="Active"/>
     <local:CompletedPatientsPage Title="Complete"/>
