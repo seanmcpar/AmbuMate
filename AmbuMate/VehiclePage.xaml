@@ -22,26 +22,12 @@
                    Style="{StaticResource EntryStyle}"
                    MaxLength="7"
                    Keyboard="Numeric"/>
-            <Grid Margin="0,10,0,10">
-                <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="300"/>
-                </Grid.ColumnDefinitions>
-                <Label  x:Name="FuelLabel"
-                        Text="Fuel:"
-                       Style="{StaticResource LabelStyle}"
-                        FontSize="15"/>
-                <Slider x:Name="FuelSlider"
-                        Grid.Column="1"
-                        MinimumTrackColor="{StaticResource AquaBlue}"
-                        MaximumTrackColor="{StaticResource Purple}"
-                        ThumbImageSource="ambumateslider.png"
-                        ThumbColor="{StaticResource Purple}"
-                        Maximum="100"
-                        Value="50"
-                        ValueChanged="FuelSlider_ValueChanged"
-                        Margin="5"/>
-            </Grid>
+            <Label Text="Checks:"
+                   Style="{StaticResource LabelStyle}"
+                   FontSize="Large"
+                   TextColor="{StaticResource Purple}"
+                   Margin="5,10,0,0"/>
+            
             <Grid>
                 <Grid.RowDefinitions>
                 </Grid.RowDefinitions>
@@ -66,19 +52,19 @@
                         Style="{StaticResource SwitchStyle}"
                         Grid.Column="2"/>
                 <Label Text="Fire Ext:" 
-                       Style="{StaticResource VehicleLabelStyle}"
+                       Style="{StaticResource SwitchLabelStyle}"
                        Grid.Row="1"/>
                 <Switch x:Name="FireExtSwitch"
                         Style="{StaticResource SwitchStyle}"
                         Grid.Row="1"/>
-                <Label Text="Warning&#10;Triangle:" Style="{StaticResource VehicleLabelStyle}"
+                <Label Text="Warning&#10;Triangle:" Style="{StaticResource SwitchLabelStyle}"
                        Grid.Row="1"
                        Grid.Column="1"/>
                 <Switch x:Name="WarnTriangleSwitch"
                         Style="{StaticResource SwitchStyle}"
                         Grid.Row="1"
                         Grid.Column="1"/>
-                <Label Text="Fire&#10;Blanket:" Style="{StaticResource VehicleLabelStyle}"
+                <Label Text="Fire&#10;Blanket:" Style="{StaticResource SwitchLabelStyle}"
                        Grid.Row="1"
                        Grid.Column="2"/>
                 <Switch x:Name="FireBlanketSwitch"
@@ -89,13 +75,15 @@
             </Grid>
             <Label Text="Vehicle Damage:"
                    Style="{StaticResource LabelStyle}"
-                   Margin="0,10,0,0"/>
+                   Margin="0,10,0,0"
+                   FontSize="Large"
+                   TextColor="{StaticResource Purple}"/>
             <Editor HorizontalOptions="FillAndExpand"
                     VerticalOptions="Fill"
                     Placeholder="Note Any Damage To vehicle Here..."
-                    BackgroundColor="{StaticResource Purple}"
-                    TextColor="White"
-                    PlaceholderColor="White"
+                    BackgroundColor="{StaticResource AquaBlue}"
+                    TextColor="Black"
+                    PlaceholderColor="{StaticResource Purple}"
                     AutoSize="TextChanges"
                     MaxLength="200"/>
             <Grid Margin="0,10,0,0">
@@ -117,10 +105,31 @@
                         Grid.Column="1"
                         Style="{StaticResource SwitchStyle}"/>
             </Grid>
+            <Grid Margin="0,10,0,10">
+                <Grid.RowDefinitions>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="280"/>
+                </Grid.ColumnDefinitions>
+                <Label  x:Name="FuelLabel"
+                        Text="Fuel:&#10;50%"
+                       Style="{StaticResource LabelStyle}"
+                        FontSize="18"/>
+                <Slider x:Name="FuelSlider"
+                        Grid.Column="1"
+                        MinimumTrackColor="{StaticResource AquaBlue}"
+                        MaximumTrackColor="{StaticResource Purple}"
+                        ThumbImageSource="ambumateslider.png"
+                        ThumbColor="{StaticResource Purple}"
+                        Maximum="100"
+                        Value="50"
+                        ValueChanged="FuelSlider_ValueChanged"
+                        Margin="5"/>
+            </Grid>
             <Entry x:Name="EndMileageEntry"
                    Placeholder="End Mileage"
                    Style="{StaticResource EntryStyle}"
-                   Margin="0,10,0,0"
                    MaxLength="7"
                    Keyboard="Numeric"/>
         </StackLayout>

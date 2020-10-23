@@ -12,9 +12,198 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to the Kit Page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Entry
+                Placeholder="Vehicle Reg"
+                Style="{StaticResource EntryStyle}"
+                Margin="10"/>
+            <Grid Margin="5,0,5,0">
+                <Grid.RowDefinitions>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Text="Para&#10;Bag:" Style="{StaticResource SwitchLabelStyle}"
+                       Grid.Column="0"/>
+                <Switch x:Name="ParaBagSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="0"/>
+                <Label Text="Drugs&#10;Bag:" Style="{StaticResource SwitchLabelStyle}"
+                            Grid.Column="1"/>
+                <Switch x:Name="DrugsBagSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="1"/>
+                <Label Text="Zoll:" Style="{StaticResource SwitchLabelStyle}"
+                            Grid.Column="2"
+                       FontSize="15"/>
+                <Switch x:Name="ZollSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="2"/>
+            </Grid>
+            <Label Text="Obs:"
+                   Style="{StaticResource LabelStyle}"
+                   FontSize="Large"
+                   TextColor="{StaticResource Purple}"
+                   Margin="5,10,0,0"/>
+            <Grid Margin="5,0,5,0">
+                <Grid.RowDefinitions>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Text="SPO2&#10;Monitor:" Style="{StaticResource SwitchLabelStyle}"
+                       Grid.Column="0"/>
+                <Switch x:Name="Spo2Switch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="0"/>
+                <Label Text="BP Cuff:" Style="{StaticResource SwitchLabelStyle}"
+                            Grid.Column="1"/>
+                <Switch x:Name="BPCuffSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="1"/>
+                <Label Text="Thermo:" Style="{StaticResource SwitchLabelStyle}"
+                            Grid.Column="2"/>
+                <Switch x:Name="ThermoSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="2"/>
+            </Grid>
+            <Label Text="First Aid:"
+                   Style="{StaticResource LabelStyle}"
+                   FontSize="Large"
+                   TextColor="{StaticResource Purple}"
+                   Margin="5,10,0,0"/>
+            <Grid Margin="5,0,5,0">
+                <Grid.RowDefinitions>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Text="Bandages:" Style="{StaticResource SwitchLabelStyle}"
+                       Grid.Column="0"
+                       FontSize="13"/>
+                <Switch x:Name="BandagesSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="0"/>
+                <Label Text="Plasters:" Style="{StaticResource SwitchLabelStyle}"
+                            Grid.Column="1"/>
+                <Switch x:Name="PlastersSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="1"/>
+                <Label Text="Wound&#10;Dressing:" Style="{StaticResource SwitchLabelStyle}"
+                            Grid.Column="2"/>
+                <Switch x:Name="WoundDressSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="2"/>
+                <Label Text="Gauze:" 
+                       Style="{StaticResource SwitchLabelStyle}"
+                       Grid.Row="1"/>
+                <Switch x:Name="GauzeSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Row="1"/>
+                <Label Text="Cleansing&#10;Wipes:" 
+                       Style="{StaticResource SwitchLabelStyle}"
+                       Grid.Row="1"
+                       Grid.Column="1"/>
+                <Switch x:Name="CleansingWipesSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Row="1"
+                        Grid.Column="1"/>
+                <Label Text="Pins/&#10;Clips:" Style="{StaticResource SwitchLabelStyle}"
+                       Grid.Row="1"
+                       Grid.Column="2"/>
+                <Switch x:Name="PinsClipsSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Row="1"
+                        Grid.Column="2"/>
+                <Label Text="Tape:" 
+                       Style="{StaticResource SwitchLabelStyle}"
+                       Grid.Row="2"/>
+                <Switch x:Name="TapeSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Row="2"/>
+                <Label Text="Tweezers:" 
+                       Style="{StaticResource SwitchLabelStyle}"
+                       Grid.Row="2"
+                       Grid.Column="1"
+                       FontSize="13"/>
+                <Switch x:Name="TweezersSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Row="2"
+                        Grid.Column="1"/>
+                <Label Text="Scissors" Style="{StaticResource SwitchLabelStyle}"
+                       Grid.Row="2"
+                       Grid.Column="2"/>
+                <Switch x:Name="ScissorsSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Row="2"
+                        Grid.Column="2"/>
+                <Label Text="Foil&#10;Blanket:" 
+                       Style="{StaticResource SwitchLabelStyle}"
+                       Grid.Row="3"/>
+                <Switch x:Name="FoilBlanketSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Row="3"/>
+                <Label Text="Torch:" 
+                       Style="{StaticResource SwitchLabelStyle}"
+                       Grid.Row="3"
+                       Grid.Column="1"/>
+                <Switch x:Name="TorchSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Row="3"
+                        Grid.Column="1"/>
+                <Label Text="BV Mask:" Style="{StaticResource SwitchLabelStyle}"
+                       Grid.Row="3"
+                       Grid.Column="2"/>
+                <Switch x:Name="BVMaskSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Row="3"
+                        Grid.Column="2"/>
+            </Grid>
+            <Label Text="Medical Gases:"
+                   Style="{StaticResource LabelStyle}"
+                   FontSize="Large"
+                   TextColor="{StaticResource Purple}"
+                   Margin="5,10,0,0"/>
+            <Grid Margin="5,0,5,0">
+                <Grid.RowDefinitions>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="280"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="O2Label"
+                        Text="O2:&#10;50%"
+                       Style="{StaticResource LabelStyle}"
+                        FontSize="18"/>
+                    <Slider x:Name="O2Slider"
+                        Grid.Column="1"
+                        MinimumTrackColor="{StaticResource AquaBlue}"
+                        MaximumTrackColor="{StaticResource Purple}"
+                        ThumbImageSource="ambumateslider.png"
+                        ThumbColor="{StaticResource Purple}"
+                        Maximum="100"
+                        Value="50"
+                        ValueChanged="O2Slider_ValueChanged"
+                        Margin="5"/>
+                <Label x:Name="N2O2Label"
+                        Text="N2O2:&#10;50%"
+                       Style="{StaticResource LabelStyle}"
+                        FontSize="18"
+                       Grid.Row="1"/>
+                <Slider x:Name="N202Slider"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        MinimumTrackColor="{StaticResource AquaBlue}"
+                        MaximumTrackColor="{StaticResource Purple}"
+                        ThumbImageSource="ambumateslider.png"
+                        ThumbColor="{StaticResource Purple}"
+                        Maximum="100"
+                        Value="50"
+                        ValueChanged="N202Slider_ValueChanged"
+                        Margin="5"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

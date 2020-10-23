@@ -21,10 +21,10 @@
             <Setter Property="FontSize" Value="Medium"/>
             <Setter Property="Margin" Value="5,5,0,0"/>
         </Style>
-        <Style x:Key="VehicleLabelStyle" TargetType="Label">
+        <Style x:Key="SwitchLabelStyle" TargetType="Label">
             <Setter Property="FontFamily" Value="Raleway-Regular"/>
             <Setter Property="TextColor" Value="{StaticResource DarkBlue}"/>
-            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="Margin" Value="5,5,0,0"/>
         </Style>
         <Style x:Key="PickerStyle" TargetType="Label">

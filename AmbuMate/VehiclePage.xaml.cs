@@ -20,7 +20,7 @@ namespace AmbuMate
 
         private void FuelSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            FuelLabel.Text = "Fuel: " + Convert.ToInt32(FuelSlider.Value) + "%";
+            FuelLabel.Text = "Fuel:\r\n" + Convert.ToInt32(FuelSlider.Value) + "%";
         }
     }
 }
