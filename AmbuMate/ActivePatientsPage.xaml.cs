@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace AmbuMate
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PatientsPage : TabbedPage
+    public partial class ActivePatientsPage : ContentPage
     {
-        public PatientsPage()
+        public ActivePatientsPage()
         {
             InitializeComponent();
         }
