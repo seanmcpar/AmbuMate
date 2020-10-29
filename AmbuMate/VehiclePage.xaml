@@ -16,7 +16,8 @@
                    Placeholder="Vehicle Registration"
                    Style="{StaticResource EntryStyle}"
                    Margin="0,10,0,0"
-                   MaxLength="12"/>
+                   MaxLength="12"
+                   IsReadOnly="True"/>
             <Entry x:Name="StartMileageEntry"
                    Placeholder="Start Mileage"
                    Style="{StaticResource EntryStyle}"
@@ -73,19 +74,21 @@
                         Grid.Column="2"/>
                 
             </Grid>
-            <Label Text="Vehicle Damage:"
+            <Label Text="Vehicle Notes:"
                    Style="{StaticResource LabelStyle}"
                    Margin="0,10,0,0"
                    FontSize="Large"
                    TextColor="{StaticResource Purple}"/>
-            <Editor HorizontalOptions="FillAndExpand"
+            <Editor x:Name="VehicleNotesEntry"
+                    HorizontalOptions="FillAndExpand"
                     VerticalOptions="Fill"
-                    Placeholder="Note Any Damage To vehicle Here..."
+                    Placeholder="Damage, Faults etc ..."
                     BackgroundColor="{StaticResource AquaBlue}"
                     TextColor="Black"
                     PlaceholderColor="{StaticResource Purple}"
                     AutoSize="TextChanges"
-                    MaxLength="200"/>
+                    MaxLength="200"
+                    FontFamily="Raleway-Regular"/>
             <Grid Margin="0,10,0,0">
                 <Grid.RowDefinitions>
                 </Grid.RowDefinitions>

@@ -1,6 +1,8 @@
 ﻿using AmbuMate.Entities;
+using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
+using SQLite;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -8,76 +10,98 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Microsoft.WindowsAzure.MobileServices;
+using System.Transactions;
 
 namespace AmbuMate
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShiftPage : ContentPage
     {
-        //stores current user and shift details
-        public Staff currentUserNav = new Staff();
-        public Shift currentShiftNav = new Shift();
+        public Shift shiftData;
 
-        /*//Initiliases the Shift Page for the first time when the user has not entered any shift details
-        public ShiftPage(Staff currentUser)
+        //Initialises the Shift Page with previously entered user details 
+        public ShiftPage()
         {
-            currentUserNav = currentUser;
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
         }
-*/
-        //Initialises the Shift Page with previously entered user details 
-        public ShiftPage(Staff currentUser, Shift currentShift)
+        
+        protected override void OnAppearing()
         {
-            currentUserNav = currentUser;
-            currentShiftNav = currentShift;
-            InitializeComponent();
-            NavigationPage.SetHasBackButton(this, false);
-
-            if (currentShift.AttendantID != 0)
+            base.OnAppearing();
+            shiftData = App.currentShift;
+            if (shiftData.AttendantID == App.currentUser.ID && shiftData.ShiftStatus.Equals("Complete") == false)
             {
-                //pupulating fields with current shift details
-                AttendantIDEntry.Text = currentShiftNav.AttendantID.ToString();
-                DriverIDEntry.Text = currentShiftNav.DriverID.ToString();
-                CrewNoPicker.SelectedItem = currentShiftNav.CrewNumber.ToString();
-                ShiftTypePicker.SelectedItem = currentShiftNav.ShiftType;
-                ShiftDate.Date = currentShiftNav.ShiftDate;
-                ShiftStartTime.Time = currentShiftNav.StartTime;
-                ShiftEndTime.Time = currentShiftNav.EndTime;
-                ShiftNotes.Text = currentShiftNav.Notes;
+                AttendantIDEntry.Text = shiftData.AttendantID.ToString();
+                if (shiftData.DriverID != 0) { DriverIDEntry.Text = shiftData.DriverID.ToString(); }
+                CrewNoPicker.SelectedItem = shiftData.Crew.ToString();
+                ShiftTypePicker.SelectedItem = shiftData.ShiftType;
+                ShiftDate.Date = shiftData.ShiftDate;
+                ShiftStartTime.Time = shiftData.StartTime.TimeOfDay;
+                ShiftEndTime.Time = shiftData.EndTime.TimeOfDay;
+                ShiftNotes.Text = shiftData.Notes;
             }
             else
             {
-                AttendantIDEntry.Text = currentUserNav.ID.ToString();
+                AttendantIDEntry.Text = App.currentUser.ID.ToString();
             }
         }
 
-        //stores entered user details in an instance of the shift class when the user leaves the Shift Page
         protected override bool OnBackButtonPressed()
         {
-            Shift currentShift = new Shift();
-            if (AttendantIDEntry.Text != null)
-            {
-                currentShift.AttendantID = int.Parse(AttendantIDEntry.Text);
-            }
-            if (DriverIDEntry.Text != null)
-            {
-                currentShift.DriverID = int.Parse(DriverIDEntry.Text);
-            }
-            if (CrewNoPicker.SelectedItem != null) 
-            {
-                currentShift.CrewNumber = int.Parse(CrewNoPicker.SelectedItem.ToString());
-            }
-            if (ShiftTypePicker.SelectedItem != null)
-            {
-                currentShift.ShiftType = ShiftTypePicker.SelectedItem.ToString();
-            }
-            currentShift.ShiftDate = ShiftDate.Date;
-            currentShift.StartTime = ShiftStartTime.Time;
-            currentShift.EndTime = ShiftEndTime.Time;
-            currentShift.Notes = ShiftNotes.Text;
-            Navigation.PushAsync(new HomePage(currentUserNav, currentShift));
+            App.currentShift = CurrentShiftDetails();
+            Navigation.PushAsync(new HomePage());
             return true;
+        }
+
+        private async void SaveBtn_Clicked(object sender, EventArgs e)
+        {
+            Shift currentShift = CurrentShiftDetails();
+            try
+            {
+                App.currentShift = currentShift;
+                if (currentShift.ID != null)
+                {
+                    await App.MobileService.GetTable<Shift>().UpdateAsync(currentShift);
+                }
+                else
+                {
+                    await App.MobileService.GetTable<Shift>().InsertAsync(currentShift);
+                }
+            }
+            catch(Exception ex)
+            {
+                await DisplayAlert("Error", ex.ToString(), "ok");
+            }
+        }
+        private Shift CurrentShiftDetails()
+        {
+            Shift shift = new Shift();
+            {
+                if (int.TryParse(AttendantIDEntry.Text, out int AttendantID))
+                {
+                    shift.AttendantID = AttendantID;
+                }
+                if (int.TryParse(DriverIDEntry.Text, out int DriverID))
+                {
+                    shift.DriverID = DriverID;
+                }
+                if (CrewNoPicker.SelectedItem != null)
+                {
+                    shift.Crew = int.Parse(CrewNoPicker.SelectedItem.ToString());
+                }
+                if (ShiftTypePicker.SelectedItem != null)
+                {
+                    shift.ShiftType = ShiftTypePicker.SelectedItem.ToString();
+                }
+                shift.ShiftStatus = "Active";
+                shift.ShiftDate = ShiftDate.Date;
+                shift.StartTime = DateTime.Parse(ShiftStartTime.Time.ToString());
+                shift.EndTime = DateTime.Parse(ShiftEndTime.Time.ToString());
+                shift.Notes = ShiftNotes.Text;
+            }
+            return shift;
         }
     }
 }

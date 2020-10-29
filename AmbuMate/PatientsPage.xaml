@@ -7,9 +7,18 @@
              mc:Ignorable="d"
              x:Class="AmbuMate.PatientsPage"
             BarBackgroundColor="{StaticResource SecondaryBlue}">
+    <NavigationPage.TitleView>
+        <Label Text="Patients"
+               FontFamily="Raleway-Regular.ttf"
+               HorizontalOptions="Center"
+               TextColor="White"
+               FontSize="30"
+               Padding="15"/>
+    </NavigationPage.TitleView>
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="Add"
-                     IconImageSource="addpatient.png"/>
+                     IconImageSource="addpatient.png"
+                     Clicked="ToolbarItem_Clicked"/>
     </TabbedPage.ToolbarItems>
     <local:InactivePatientsPage Title="Inactive"/>
     <local:ActivePatientsPage Title="Active"/>

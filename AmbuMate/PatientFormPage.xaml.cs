@@ -10,16 +10,14 @@ using Xamarin.Forms.Xaml;
 namespace AmbuMate
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PatientsPage : TabbedPage
+    public partial class PatientFormPage : ContentPage
     {
-        public PatientsPage()
+        
+        public PatientFormPage()
         {
             InitializeComponent();
-        }
-
-        private void ToolbarItem_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new PatientFormPage());
+            var assembly = typeof(PatientFormPage);
+            addPatientBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.addpatient.png", assembly);
         }
     }
 }

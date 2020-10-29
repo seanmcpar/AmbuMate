@@ -1,5 +1,8 @@
-﻿using Microsoft.WindowsAzure.MobileServices;
+﻿using AmbuMate.Entities;
+using Microsoft.WindowsAzure.MobileServices;
 using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 [assembly: ExportFont("LilitaOne-Regular.ttf")]
@@ -11,12 +14,24 @@ namespace AmbuMate
     public partial class App : Application
     {
         public static MobileServiceClient MobileService = new MobileServiceClient("https://ambumatemobileapp.azurewebsites.net");
-        public App()
+        public static string DatabaseLocation = string.Empty;
+        public static Staff currentUser = new Staff();
+        public static Shift currentShift = new Shift();
+        public static Vehicle currentVehicle = new Vehicle();
+        public static Kit currentKit = new Kit();
+        public static List<Patient> currentPatients = new List<Patient>();
+        public App() 
         {
             InitializeComponent();
             MainPage = new NavigationPage( new MainPage());
         }
 
+        public App(string databaseLocation)
+        {
+            InitializeComponent();
+            MainPage = new NavigationPage(new MainPage());
+            DatabaseLocation = databaseLocation;
+        }
         protected override void OnStart()
         {
         }

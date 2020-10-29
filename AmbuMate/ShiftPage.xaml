@@ -11,7 +11,8 @@
                Padding="15"/>
     </NavigationPage.TitleView>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout
+            x:Name="stakclayoutthing">
             <Label Style="{StaticResource LabelStyle}"
                    Text="Crew IDs:"/>
             <Entry x:Name="AttendantIDEntry"
@@ -22,6 +23,7 @@
                    Style="{StaticResource EntryStyle}"
                    Placeholder="Driver ID"
                    Keyboard="Numeric"/>
+            
             <Label Style="{StaticResource LabelStyle}"
                    Text="Crew Number:"/>
             <Picker x:Name="CrewNoPicker"
@@ -81,6 +83,10 @@
                     VerticalOptions="FillAndExpand"
                     HorizontalOptions="FillAndExpand"
                     />
+            <Button x:Name="SaveBtn"
+                    Clicked="SaveBtn_Clicked"
+                    Text="Save Shift Details"
+                    Style="{StaticResource ButtonStyle}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

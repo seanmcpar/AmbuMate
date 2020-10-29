@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AmbuMate.PatientFormPage">
+    <NavigationPage.TitleView>
+        <Label Text="New Patient"
+               FontFamily="Raleway-Regular.ttf"
+               HorizontalOptions="End"
+               TextColor="White"
+               FontSize="30"
+               Padding="15"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="PatientReferenceEntry"
+                   Placeholder="Patient Ref."
+                   Style="{StaticResource EntryStyle}"
+                   Margin="0,10,0,0"/>
+            <Entry x:Name="FirstNameEntry"
+                   Placeholder="First Name"
+                   Style="{StaticResource EntryStyle}"/>
+            <Entry x:Name="SurnameEntry"
+                   Placeholder="Surname"
+                   Style="{StaticResource EntryStyle}"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+                <Editor x:Name="PickupLocationEditor"
+                    Placeholder="Enter Pickup Location..."
+                    FontFamily="Raleway-Regular.ttf"
+                    AutoSize="TextChanges"/>
+                <Editor x:Name="DropoffLocationEditor"
+                    Placeholder="Enter Drop off Location..."
+                    FontFamily="Raleway-Regular.ttf"
+                    AutoSize="TextChanges"
+                        Grid.Row="1"/>
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                </Grid.RowDefinitions>
+                <Editor x:Name="SpecialRequirementsEditor"
+                        Placeholder="Special Requirements..."
+                        FontFamily="Raleway-Regular.ttf"
+                        AutoSize="TextChanges"
+                        Grid.Row="0"/>
+                <Label Text="Infectious:"
+                       Style="{StaticResource SwitchLabelStyle}"
+                       Grid.Column="1"
+                       FontSize="18"
+                       VerticalOptions="Center"/>
+                <Switch Grid.Column="1"
+                        HorizontalOptions="EndAndExpand"
+                        Margin="10,0,15,0"
+                        Style="{StaticResource SwitchStyle}"/>
+            </Grid>
+            <ImageButton x:Name="addPatientBtn"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                         BackgroundColor="Transparent"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

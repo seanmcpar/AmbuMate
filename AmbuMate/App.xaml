@@ -12,29 +12,35 @@
             <Setter Property="BarTextColor" Value="White"></Setter>
         </Style>
         <Style x:Key="EntryStyle" TargetType="Entry">
-            <Setter Property="FontFamily" Value="Raleway-Regular"/>
+            <Setter Property="FontFamily" Value="Raleway-Regular.ttf"/>
             <Setter Property="TextColor" Value="Black"/>
         </Style>
         <Style x:Key="LabelStyle" TargetType="Label">
-            <Setter Property="FontFamily" Value="Raleway-Regular"/>
+            <Setter Property="FontFamily" Value="Raleway-Regular.ttf"/>
             <Setter Property="TextColor" Value="{StaticResource DarkBlue}"/>
             <Setter Property="FontSize" Value="Medium"/>
             <Setter Property="Margin" Value="5,5,0,0"/>
         </Style>
         <Style x:Key="SwitchLabelStyle" TargetType="Label">
-            <Setter Property="FontFamily" Value="Raleway-Regular"/>
+            <Setter Property="FontFamily" Value="Raleway-Regular.ttf"/>
             <Setter Property="TextColor" Value="{StaticResource DarkBlue}"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Margin" Value="5,5,0,0"/>
         </Style>
         <Style x:Key="PickerStyle" TargetType="Label">
-            <Setter Property="FontFamily" Value="Raleway-Regular"/>
+            <Setter Property="FontFamily" Value="Raleway-Regular.ttf"/>
             <Setter Property="FontSize" Value="Medium"/>
             <Setter Property="Margin" Value="5,5,0,0"/>
         </Style>
         <Style x:Key="SwitchStyle" TargetType="Switch">
             <Setter Property="ThumbColor" Value="{StaticResource Purple}"></Setter>
             <Setter Property="OnColor" Value="{StaticResource AquaBlue}"></Setter>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource Purple}"></Setter>
+            <Setter Property="FontFamily" Value="Raleway-Regular.ttf"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="TextColor" Value="White"></Setter>
         </Style>
     </Application.Resources>
 </Application>

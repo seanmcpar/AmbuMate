@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using Foundation;
@@ -24,8 +25,14 @@ namespace AmbuMate.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            string dbName = "ambumate_db.sqlite";
+            string folderPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "..", "Library");
+            string fullPath = Path.Combine(folderPath, dbName);
+
             CurrentPlatform.Init();
-            LoadApplication(new App());
+
+            LoadApplication(new App(fullPath));
 
             return base.FinishedLaunching(app, options);
         }
