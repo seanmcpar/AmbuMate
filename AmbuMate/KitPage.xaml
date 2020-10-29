@@ -11,6 +11,7 @@
                Padding="15"/>
     </NavigationPage.TitleView>
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout>
             <Entry
                 Placeholder="Vehicle Reg"
@@ -18,6 +19,7 @@
                 Margin="10"/>
             <Grid Margin="5,0,5,0">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -38,6 +40,54 @@
                 <Switch x:Name="ZollSwitch"
                         Style="{StaticResource SwitchStyle}"
                         Grid.Column="2"/>
+            </Grid>
+            <Label Text="Hygiene:"
+                   Style="{StaticResource LabelStyle}"
+                   FontSize="Large"
+                   TextColor="{StaticResource Purple}"
+                   Margin="5,10,0,0"/>
+            <Grid Margin="5,0,5,0">
+                <Grid.RowDefinitions>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Text="Vomit&#10;Bowl:" Style="{StaticResource SwitchLabelStyle}"
+                       Grid.Column="0"/>
+                <Switch x:Name="VomitBowlSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="0"/>
+                <Label Text="Wipes:" Style="{StaticResource SwitchLabelStyle}"
+                            Grid.Column="1"/>
+                <Switch x:Name="WipesSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="1"/>
+                <Label Text="Blue Roll:" Style="{StaticResource SwitchLabelStyle}"
+                            Grid.Column="2"/>
+                <Switch x:Name="BlueRollSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="2"/>
+                <Label Text="Sheets:" Style="{StaticResource SwitchLabelStyle}"
+                            Grid.Column="0"
+                       Grid.Row="1"/>
+                <Switch x:Name="SheetsSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="0"
+                        Grid.Row="1"/>
+                <Label Text="Pillows:" Style="{StaticResource SwitchLabelStyle}"
+                            Grid.Column="1"
+                       Grid.Row="1"/>
+                <Switch x:Name="PillowsSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="1"
+                        Grid.Row="1"/>
+                <Label Text="Blankets:" Style="{StaticResource SwitchLabelStyle}"
+                            Grid.Column="2"
+                       Grid.Row="1"/>
+                <Switch x:Name="BlanketsSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="2"
+                        Grid.Row="1"/>
             </Grid>
             <Label Text="Obs:"
                    Style="{StaticResource LabelStyle}"
@@ -177,7 +227,7 @@
                         Text="O2:&#10;50%"
                        Style="{StaticResource LabelStyle}"
                         FontSize="18"/>
-                    <Slider x:Name="O2Slider"
+                <Slider x:Name="O2Slider"
                         Grid.Column="1"
                         MinimumTrackColor="{StaticResource AquaBlue}"
                         MaximumTrackColor="{StaticResource Purple}"
@@ -205,5 +255,6 @@
                         Margin="5"/>
             </Grid>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

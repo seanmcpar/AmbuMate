@@ -1,5 +1,6 @@
 ﻿using AmbuMate.Entities;
 using AmbuMate.Logic;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +15,7 @@ namespace AmbuMate
 {
     public partial class MainPage : ContentPage
     {
-        public Staff currentUser = new Staff();
-        public Shift currentShift = new Shift();
-
+       
         public MainPage()
         {
             InitializeComponent();
@@ -40,14 +39,8 @@ namespace AmbuMate
                             Password password = new Password();
                             if (password.Verify(passwordEntry.Text.Trim(), user.PasswordHash))
                             {
-                                //creating an instance of a Staff class with the details of the user who has logged in
-                                currentUser.ID = user.ID;
-                                currentUser.FirstName = user.FirstName;
-                                currentUser.Surname = user.Surname;
-                                currentUser.Staff_type = user.Staff_type;
-                                currentUser.PasswordHash = user.PasswordHash;
-                                App.Current.MainPage = new NavigationPage( new HomePage(currentUser, currentShift));
-                                //await Navigation.PushAsync(new HomePage(currentUser));
+                                App.currentUser = user;
+                                App.Current.MainPage = new NavigationPage( new HomePage());
                             }
                             else
                             {

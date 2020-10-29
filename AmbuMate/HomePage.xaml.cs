@@ -13,39 +13,10 @@ namespace AmbuMate
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : ContentPage
     {
-        //stores current user and shift detail
-        public Staff currentUserNav = new Staff();
-        public Shift currentShiftNav = new Shift();
         
-        //determines what stage the app is at
-        //1=logged in & staff details are stored
-        //2=staff details + shift details are stored
-        //3=
-        //4=
-        //public int currentAppState;
-
-        //initialises the HomePage when the user logs in and has not filled in any pages
-        /*public HomePage(Staff currentUser)
-        {
-            currentAppState = 1;
-            currentUserNav = currentUser;
-            InitializeComponent();
-            NavigationPage.SetHasBackButton(this, false);
-
-            //set button image sources
-            var assembly = typeof(HomePage);
-            ShiftBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.shiftlogo.png", assembly);
-            VehicleBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.vehiclelogo.png", assembly);
-            KitBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.kitlogo.png", assembly);
-            PatientsBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.patientlogo.png", assembly);
-            currentUserName.Text = currentUser.FirstName[0].ToString() + ". " + currentUser.Surname; 
-        }*/
-
         //initialises the HomePage when the user has entered shift details
-        public HomePage(Staff currentUser, Shift currentShift)
+        public HomePage()
         {
-            currentUserNav = currentUser;
-            currentShiftNav = currentShift;
             InitializeComponent(); 
             NavigationPage.SetHasBackButton(this, false);
 
@@ -55,7 +26,22 @@ namespace AmbuMate
             VehicleBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.vehiclelogo.png", assembly);
             KitBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.kitlogo.png", assembly);
             PatientsBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.patientlogo.png", assembly);
-            currentUserName.Text = currentUser.FirstName[0].ToString() + ". " + currentUser.Surname;
+            currentUserName.Text = App.currentUser.FirstName[0].ToString() + ". " + App.currentUser.Surname;
+        }
+
+        protected async override void OnAppearing()
+        {
+            if (App.currentShift.ID == null)
+            {
+                App.currentShift = (await App.MobileService.GetTable<Shift>().Where(s => s.AttendantID == App.currentUser.ID && (s.ShiftDate == DateTime.Today || s.ShiftDate == DateTime.Today.AddDays(-1)) && s.ShiftStatus == "Active").ToListAsync()).LastOrDefault();
+            }
+            if (App.currentShift.ID != null)
+                {
+                    App.currentVehicle = (await App.MobileService.GetTable<Vehicle>().Where(v => v.ShiftID == App.currentShift.ID).ToListAsync()).FirstOrDefault();
+                    App.currentKit = (await App.MobileService.GetTable<Kit>().Where(k => k.ShiftID == App.currentShift.ID).ToListAsync()).FirstOrDefault();
+                    App.currentPatients = await App.MobileService.GetTable<Patient>().Where(p => p.ShiftID == App.currentShift.ID).ToListAsync();
+                }
+            base.OnAppearing();
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
@@ -70,7 +56,7 @@ namespace AmbuMate
 
         private void ShiftBtn_Clicked(object sender, EventArgs e)
         {
-                Navigation.PushAsync(new ShiftPage(currentUserNav, currentShiftNav));
+                Navigation.PushAsync(new ShiftPage());
         }
 
         private void KitBtn_Clicked(object sender, EventArgs e)

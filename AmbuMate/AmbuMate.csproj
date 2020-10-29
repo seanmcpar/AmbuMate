@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -15,6 +15,7 @@
     <None Remove="Assets\Fonts\pakenham-free.regular.ttf" />
     <None Remove="Assets\Fonts\Raleway-Regular.ttf" />
     <None Remove="Assets\Fonts\Raleway-SemiBold.ttf" />
+    <None Remove="Assets\Images\addpatient.png" />
     <None Remove="Assets\Images\ambumatelogo.png" />
     <None Remove="Assets\Images\kitlogo.png" />
     <None Remove="Assets\Images\logoutbutton.png" />
@@ -30,6 +31,7 @@
     <EmbeddedResource Include="Assets\Fonts\pakenham-free.regular.ttf" />
     <EmbeddedResource Include="Assets\Fonts\Raleway-Regular.ttf" />
     <EmbeddedResource Include="Assets\Fonts\Raleway-SemiBold.ttf" />
+    <EmbeddedResource Include="Assets\Images\addpatient.png" />
     <EmbeddedResource Include="Assets\Images\ambumatelogo.png" />
     <EmbeddedResource Include="Assets\Images\kitlogo.png" />
     <EmbeddedResource Include="Assets\Images\logoutbutton.png" />
@@ -42,7 +44,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.1.2" />
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1534" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="3.1.9" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.113.2" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1560" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
 
@@ -63,6 +69,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="OptionsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PatientFormPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="PatientsPage.xaml">
