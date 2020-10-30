@@ -79,6 +79,7 @@ namespace AmbuMate
         {
             Shift shift = new Shift();
             {
+                if (App.currentShift.ID != null) { shift.ID = App.currentShift.ID; }
                 if (int.TryParse(AttendantIDEntry.Text, out int AttendantID))
                 {
                     shift.AttendantID = AttendantID;

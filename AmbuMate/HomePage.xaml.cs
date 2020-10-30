@@ -33,7 +33,11 @@ namespace AmbuMate
         {
             if (App.currentShift.ID == null)
             {
-                App.currentShift = (await App.MobileService.GetTable<Shift>().Where(s => s.AttendantID == App.currentUser.ID && (s.ShiftDate == DateTime.Today || s.ShiftDate == DateTime.Today.AddDays(-1)) && s.ShiftStatus == "Active").ToListAsync()).LastOrDefault();
+                 Shift dbShift = (await App.MobileService.GetTable<Shift>().Where(s => s.AttendantID == App.currentUser.ID && (s.ShiftDate == DateTime.Today || s.ShiftDate == DateTime.Today.AddDays(-1)) && s.ShiftStatus == "Active").ToListAsync()).FirstOrDefault();
+                 if(dbShift != null)
+                {
+                    App.currentShift = dbShift;
+                }
             }
             if (App.currentShift.ID != null)
                 {
