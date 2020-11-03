@@ -10,17 +10,17 @@ namespace AmbuMate.Entities
     {
         [PrimaryKey, AutoIncrement]
         public string ID { get; set; }
-        public string RegNumber { get; set; }
+        public string Registration { get; set; }
         public string ShiftID { get; set; }
         public int StartMileage { get; set; }
-        public bool Lights { get; set; }
-        public bool Signals { get; set; }
-        public bool Sirens { get; set; }
-        public bool FireExtinguisher { get; set; }
-        public bool WarningTriangle { get; set; }
-        public bool FireBlanket { get; set; }
-        public bool Clean { get; set; }
-        public bool DeepClean { get; set; }
+        public string Lights { get; set; }
+        public string Signals { get; set; }
+        public string Sirens { get; set; }
+        public string FireExtinguisher { get; set; }
+        public string WarningTriangle { get; set; }
+        public string FireBlanket { get; set; }
+        public string Clean { get; set; }
+        public string DeepClean { get; set; }
         public int Fuel { get; set; }
         public int EndMileage { get; set; }
         public string VehicleNotes { get; set; }

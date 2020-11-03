@@ -16,8 +16,7 @@
                    Placeholder="Vehicle Registration"
                    Style="{StaticResource EntryStyle}"
                    Margin="0,10,0,0"
-                   MaxLength="12"
-                   IsReadOnly="True"/>
+                   MaxLength="12"/>
             <Entry x:Name="StartMileageEntry"
                    Placeholder="Start Mileage"
                    Style="{StaticResource EntryStyle}"
@@ -135,6 +134,10 @@
                    Style="{StaticResource EntryStyle}"
                    MaxLength="7"
                    Keyboard="Numeric"/>
+            <Button x:Name="SaveBtn"
+                    Clicked="SaveBtn_Clicked"
+                    Text="Save Shift Details"
+                    Style="{StaticResource ButtonStyle}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

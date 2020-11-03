@@ -14,24 +14,26 @@ namespace AmbuMate
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VehiclePage : ContentPage
     {
+        public Vehicle vehicleData;
         public VehiclePage()
         {
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
-           
-                if (App.currentVehicle.ID!=null)
+
+           vehicleData = App.currentVehicle;
+            if (vehicleData!=null)
                 {
-                        RegNoEntry.Text = App.currentVehicle.RegNumber;
+                        RegNoEntry.Text = App.currentVehicle.Registration;
                     if (App.currentVehicle.StartMileage!=0) { StartMileageEntry.Text = App.currentVehicle.StartMileage.ToString(); }
                     if (App.currentVehicle.EndMileage != 0) { EndMileageEntry.Text = App.currentVehicle.EndMileage.ToString(); }
-                        LightsSwitch.IsToggled = App.currentVehicle.Lights;
-                        SignalsSwitch.IsToggled = App.currentVehicle.Signals;
-                        SirensSwitch.IsToggled = App.currentVehicle.Signals;
-                        FireExtSwitch.IsToggled = App.currentVehicle.FireExtinguisher;
-                        WarnTriangleSwitch.IsToggled = App.currentVehicle.WarningTriangle;
-                        FireBlanketSwitch.IsToggled = App.currentVehicle.FireBlanket;
-                        VehicleCleanedSwitch.IsToggled = App.currentVehicle.Clean;
-                        DeepCleanSwitch.IsToggled = App.currentVehicle.DeepClean;
+                        LightsSwitch.IsToggled = bool.Parse(App.currentVehicle.Lights);
+                        SignalsSwitch.IsToggled = bool.Parse(App.currentVehicle.Signals);
+                        SirensSwitch.IsToggled = bool.Parse(App.currentVehicle.Signals);
+                        FireExtSwitch.IsToggled = bool.Parse(App.currentVehicle.FireExtinguisher);
+                        WarnTriangleSwitch.IsToggled = bool.Parse(App.currentVehicle.WarningTriangle);
+                        FireBlanketSwitch.IsToggled = bool.Parse(App.currentVehicle.FireBlanket);
+                        VehicleCleanedSwitch.IsToggled = bool.Parse(App.currentVehicle.Clean);
+                        DeepCleanSwitch.IsToggled = bool.Parse(App.currentVehicle.DeepClean);
                     if (App.currentVehicle.Fuel != 0) { FuelSlider.Value = App.currentVehicle.Fuel; }
                     if (App.currentVehicle.VehicleNotes != null){ VehicleNotesEntry.Text = App.currentVehicle.VehicleNotes;}
                 }
@@ -56,7 +58,7 @@ namespace AmbuMate
         {
             Vehicle vehicle = new Vehicle();
             {
-                vehicle.RegNumber = vehicle.RegNumber;
+                vehicle.Registration = RegNoEntry.Text;
                 if (int.TryParse(StartMileageEntry.Text, out int startMileage))
                 {
                     vehicle.StartMileage = startMileage;
@@ -65,18 +67,39 @@ namespace AmbuMate
                 {
                     vehicle.EndMileage = endMileage;
                 }
-                vehicle.Lights = LightsSwitch.IsToggled;
-                vehicle.Signals = SignalsSwitch.IsToggled;
-                vehicle.Signals = SirensSwitch.IsToggled;
-                vehicle.FireExtinguisher = FireExtSwitch.IsToggled;
-                vehicle.WarningTriangle = WarnTriangleSwitch.IsToggled;
-                vehicle.FireBlanket = FireBlanketSwitch.IsToggled;
-                vehicle.Clean = VehicleCleanedSwitch.IsToggled;
-                vehicle.DeepClean = DeepCleanSwitch.IsToggled;
+                vehicle.Lights = LightsSwitch.IsToggled.ToString();
+                vehicle.Signals = SignalsSwitch.IsToggled.ToString();
+                vehicle.Sirens = SirensSwitch.IsToggled.ToString();
+                vehicle.FireExtinguisher = FireExtSwitch.IsToggled.ToString();
+                vehicle.WarningTriangle = WarnTriangleSwitch.IsToggled.ToString();
+                vehicle.FireBlanket = FireBlanketSwitch.IsToggled.ToString();
+                vehicle.Clean = VehicleCleanedSwitch.IsToggled.ToString();
+                vehicle.DeepClean = DeepCleanSwitch.IsToggled.ToString();
                 vehicle.Fuel = Convert.ToInt32(FuelSlider.Value);
                 vehicle.VehicleNotes = VehicleNotesEntry.Text;
+                vehicle.ShiftID = App.currentShift.ID;
             }
             return vehicle;
+        }
+
+        private async void SaveBtn_Clicked(object sender, EventArgs e)
+        {
+            Vehicle currentVehicle = CurrentVehicleDetails();
+            try
+            {
+                if (currentVehicle.ID != null)
+                {
+                    await App.MobileService.GetTable<Vehicle>().UpdateAsync(currentVehicle);
+                }
+                else
+                {
+                    await App.MobileService.GetTable<Vehicle>().InsertAsync(currentVehicle);
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", ex.ToString(), "ok");
+            }
         }
     }
 
