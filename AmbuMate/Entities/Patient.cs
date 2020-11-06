@@ -13,6 +13,7 @@ namespace AmbuMate.Entities
         public int PatientReference { get; set; }
         //[ForeignKey(typeof(Shift))]
         public string ShiftID { get; set; }
+        public string Status { get; set; }
         public string FirstName { get; set; }
         public string Surname { get; set; }
         public string PickUp {get;set;}

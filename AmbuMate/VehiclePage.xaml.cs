@@ -20,24 +20,23 @@ namespace AmbuMate
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
 
-           vehicleData = App.currentVehicle;
-            if (vehicleData!=null)
-                {
-                        RegNoEntry.Text = App.currentVehicle.Registration;
-                    if (App.currentVehicle.StartMileage!=0) { StartMileageEntry.Text = App.currentVehicle.StartMileage.ToString(); }
-                    if (App.currentVehicle.EndMileage != 0) { EndMileageEntry.Text = App.currentVehicle.EndMileage.ToString(); }
-                        LightsSwitch.IsToggled = bool.Parse(App.currentVehicle.Lights);
-                        SignalsSwitch.IsToggled = bool.Parse(App.currentVehicle.Signals);
-                        SirensSwitch.IsToggled = bool.Parse(App.currentVehicle.Signals);
-                        FireExtSwitch.IsToggled = bool.Parse(App.currentVehicle.FireExtinguisher);
-                        WarnTriangleSwitch.IsToggled = bool.Parse(App.currentVehicle.WarningTriangle);
-                        FireBlanketSwitch.IsToggled = bool.Parse(App.currentVehicle.FireBlanket);
-                        VehicleCleanedSwitch.IsToggled = bool.Parse(App.currentVehicle.Clean);
-                        DeepCleanSwitch.IsToggled = bool.Parse(App.currentVehicle.DeepClean);
-                    if (App.currentVehicle.Fuel != 0) { FuelSlider.Value = App.currentVehicle.Fuel; }
-                    if (App.currentVehicle.VehicleNotes != null){ VehicleNotesEntry.Text = App.currentVehicle.VehicleNotes;}
-                }
-
+            vehicleData = App.currentVehicle;
+            if (vehicleData != null && vehicleData.Status == "Active")
+            {
+                RegNoEntry.Text = App.currentVehicle.Registration;
+                if (App.currentVehicle.StartMileage != 0) { StartMileageEntry.Text = App.currentVehicle.StartMileage.ToString(); }
+                if (App.currentVehicle.EndMileage != 0) { EndMileageEntry.Text = App.currentVehicle.EndMileage.ToString(); }
+                LightsSwitch.IsToggled = bool.Parse(App.currentVehicle.Lights);
+                SignalsSwitch.IsToggled = bool.Parse(App.currentVehicle.Signals);
+                SirensSwitch.IsToggled = bool.Parse(App.currentVehicle.Signals);
+                FireExtSwitch.IsToggled = bool.Parse(App.currentVehicle.FireExtinguisher);
+                WarnTriangleSwitch.IsToggled = bool.Parse(App.currentVehicle.WarningTriangle);
+                FireBlanketSwitch.IsToggled = bool.Parse(App.currentVehicle.FireBlanket);
+                VehicleCleanedSwitch.IsToggled = bool.Parse(App.currentVehicle.Clean);
+                DeepCleanSwitch.IsToggled = bool.Parse(App.currentVehicle.DeepClean);
+                if (App.currentVehicle.Fuel != 0) { FuelSlider.Value = App.currentVehicle.Fuel; }
+                if (App.currentVehicle.VehicleNotes != null) { VehicleNotesEntry.Text = App.currentVehicle.VehicleNotes; }
+            }
         }
 
         private void FuelSlider_ValueChanged(object sender, ValueChangedEventArgs e)
@@ -54,10 +53,34 @@ namespace AmbuMate
             return true;
         }
 
+
+        private async void SaveBtn_Clicked(object sender, EventArgs e)
+        {
+            Vehicle currentVehicle = CurrentVehicleDetails();
+            try
+            {
+                App.currentVehicle = currentVehicle;
+                if (currentVehicle.ID != null)
+                {
+                    await App.MobileService.GetTable<Vehicle>().UpdateAsync(currentVehicle);
+                }
+                else
+                {
+                    await App.MobileService.GetTable<Vehicle>().InsertAsync(currentVehicle);
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", ex.ToString(), "ok");
+            }
+        }
+
+
         private Vehicle CurrentVehicleDetails()
         {
             Vehicle vehicle = new Vehicle();
             {
+                if (App.currentVehicle != null) { vehicle.ID = App.currentVehicle.ID; }
                 vehicle.Registration = RegNoEntry.Text;
                 if (int.TryParse(StartMileageEntry.Text, out int startMileage))
                 {
@@ -77,30 +100,12 @@ namespace AmbuMate
                 vehicle.DeepClean = DeepCleanSwitch.IsToggled.ToString();
                 vehicle.Fuel = Convert.ToInt32(FuelSlider.Value);
                 vehicle.VehicleNotes = VehicleNotesEntry.Text;
+                vehicle.Status = "Active";
                 vehicle.ShiftID = App.currentShift.ID;
             }
             return vehicle;
         }
 
-        private async void SaveBtn_Clicked(object sender, EventArgs e)
-        {
-            Vehicle currentVehicle = CurrentVehicleDetails();
-            try
-            {
-                if (currentVehicle.ID != null)
-                {
-                    await App.MobileService.GetTable<Vehicle>().UpdateAsync(currentVehicle);
-                }
-                else
-                {
-                    await App.MobileService.GetTable<Vehicle>().InsertAsync(currentVehicle);
-                }
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Error", ex.ToString(), "ok");
-            }
-        }
-    }
 
+    }
 }

@@ -23,6 +23,7 @@ namespace AmbuMate.Entities
         public string DeepClean { get; set; }
         public int Fuel { get; set; }
         public int EndMileage { get; set; }
+        public string Status { get; set; }
         public string VehicleNotes { get; set; }
 
     }

@@ -13,13 +13,17 @@ namespace AmbuMate
 {
     public partial class App : Application
     {
+        //mobile client for communicating with azure web app and db
         public static MobileServiceClient MobileService = new MobileServiceClient("https://ambumatemobileapp.azurewebsites.net");
         public static string DatabaseLocation = string.Empty;
+       
+        //data for current shift accessible throughout app
         public static Staff currentUser = new Staff();
         public static Shift currentShift = new Shift();
         public static Vehicle currentVehicle = new Vehicle();
         public static Kit currentKit = new Kit();
         public static List<Patient> currentPatients = new List<Patient>();
+
         public App() 
         {
             InitializeComponent();

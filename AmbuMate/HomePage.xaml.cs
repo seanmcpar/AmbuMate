@@ -26,25 +26,39 @@ namespace AmbuMate
             VehicleBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.vehiclelogo.png", assembly);
             KitBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.kitlogo.png", assembly);
             PatientsBtn.Source = ImageSource.FromResource("AmbuMate.Assets.Images.patientlogo.png", assembly);
+
+            //current users name displays at the top of the screen
             currentUserName.Text = App.currentUser.FirstName[0].ToString() + ". " + App.currentUser.Surname;
         }
 
+        //Reads AmbuMate database and fills App data fields with relevant shift information
         protected async override void OnAppearing()
         {
             if (App.currentShift.ID == null)
             {
                  Shift dbShift = (await App.MobileService.GetTable<Shift>().Where(s => s.AttendantID == App.currentUser.ID && (s.ShiftDate == DateTime.Today || s.ShiftDate == DateTime.Today.AddDays(-1)) && s.ShiftStatus == "Active").ToListAsync()).FirstOrDefault();
-                 if(dbShift != null)
+                 
+                if (dbShift != null)
                 {
                     App.currentShift = dbShift;
+                    Vehicle currentVehicle = (await App.MobileService.GetTable<Vehicle>().Where(v => v.ShiftID == App.currentShift.ID).ToListAsync()).FirstOrDefault();
+                    Kit currentKit = (await App.MobileService.GetTable<Kit>().Where(k => k.ShiftID == App.currentShift.ID).ToListAsync()).FirstOrDefault();
+                    List<Patient> currentPatients = await App.MobileService.GetTable<Patient>().Where(p => p.ShiftID == App.currentShift.ID).ToListAsync();
+                    App.currentVehicle = currentVehicle;
+                    App.currentKit = currentKit;
+                    App.currentPatients = currentPatients;
                 }
             }
-            if (App.currentShift.ID != null)
+            else if (App.currentShift.ID != null)
                 {
-                    App.currentVehicle = (await App.MobileService.GetTable<Vehicle>().Where(v => v.ShiftID == App.currentShift.ID).ToListAsync()).FirstOrDefault();
-                    App.currentKit = (await App.MobileService.GetTable<Kit>().Where(k => k.ShiftID == App.currentShift.ID).ToListAsync()).FirstOrDefault();
-                    App.currentPatients = await App.MobileService.GetTable<Patient>().Where(p => p.ShiftID == App.currentShift.ID).ToListAsync();
-                }
+                Vehicle currentVehicle = (await App.MobileService.GetTable<Vehicle>().Where(v => v.ShiftID == App.currentShift.ID).ToListAsync()).FirstOrDefault();
+                Kit currentKit = (await App.MobileService.GetTable<Kit>().Where(k => k.ShiftID == App.currentShift.ID).ToListAsync()).FirstOrDefault();
+                List<Patient> currentPatients = await App.MobileService.GetTable<Patient>().Where(p => p.ShiftID == App.currentShift.ID).ToListAsync();
+                App.currentVehicle = currentVehicle;
+                App.currentKit = currentKit;
+                App.currentPatients = currentPatients;
+
+            }
             base.OnAppearing();
         }
 

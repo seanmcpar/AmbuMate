@@ -15,6 +15,9 @@ namespace AmbuMate.Entities
         public bool ParaBag { get; set; }
         public bool DrugsBag { get; set; }
         public bool Zoll { get; set; }
+        public bool CarryChair { get; set; }
+        public bool WheelChair { get; set; }
+        public bool Stretcher { get; set; }
         public bool VomitBowl { get; set; }
         public bool Wipes { get; set; }
         public bool BlueRoll { get; set; }
@@ -38,7 +41,6 @@ namespace AmbuMate.Entities
         public int O2 { get; set; }
         public int N2O2 { get; set; }
         public string KitUsed { get; set; }
-        //[OneToOne]
-        //public Vehicle Vehicle { get; set; }
+        public string Status { get; set; }
     }
 }

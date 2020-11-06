@@ -20,4 +20,5 @@ namespace AmbuMate.Entities
         public DateTime EndTime { get; set; }
         public string Notes { get; set; }
     }
+
 }
