@@ -82,9 +82,7 @@
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="Fill"
                     Placeholder="Damage, Faults etc ..."
-                    BackgroundColor="{StaticResource AquaBlue}"
-                    TextColor="Black"
-                    PlaceholderColor="{StaticResource Purple}"
+                    TextColor="{StaticResource DarkBlue}"
                     AutoSize="TextChanges"
                     MaxLength="200"
                     FontFamily="Raleway-Regular"/>

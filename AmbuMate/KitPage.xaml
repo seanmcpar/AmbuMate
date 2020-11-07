@@ -14,13 +14,16 @@
         <ScrollView>
         <StackLayout>
             <Entry
+                x:Name="RegNumberEntry"
                 Placeholder="Vehicle Reg"
                 Style="{StaticResource EntryStyle}"
-                Margin="10"/>
+                Margin="10"
+                IsReadOnly="True"/>
             <Grid Margin="5,0,5,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
-                </Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
@@ -40,7 +43,28 @@
                 <Switch x:Name="ZollSwitch"
                         Style="{StaticResource SwitchStyle}"
                         Grid.Column="2"/>
-            </Grid>
+                    <Label Text="Carry&#10;Chair:" Style="{StaticResource SwitchLabelStyle}"
+                       Grid.Column="0"
+                           Grid.Row="1"/>
+                    <Switch x:Name="CarryChairSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                            Grid.Row="1"
+                        Grid.Column="0"/>
+                    <Label Text="Wheel&#10;Chair:" Style="{StaticResource SwitchLabelStyle}"
+                            Grid.Column="1"
+                           Grid.Row="1"/>
+                    <Switch x:Name="WheelChairSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="1"
+                            Grid.Row="1"/>
+                    <Label Text="Stretcher:" Style="{StaticResource SwitchLabelStyle}"
+                            Grid.Column="2"
+                           Grid.Row="1"/>
+                    <Switch x:Name="StretcherSwitch"
+                        Style="{StaticResource SwitchStyle}"
+                        Grid.Column="2"
+                            Grid.Row="1"/>
+                </Grid>
             <Label Text="Hygiene:"
                    Style="{StaticResource LabelStyle}"
                    FontSize="Large"
@@ -242,7 +266,7 @@
                        Style="{StaticResource LabelStyle}"
                         FontSize="18"
                        Grid.Row="1"/>
-                <Slider x:Name="N202Slider"
+                    <Slider x:Name="N202Slider"
                         Grid.Column="1"
                         Grid.Row="1"
                         MinimumTrackColor="{StaticResource AquaBlue}"
@@ -253,8 +277,30 @@
                         Value="50"
                         ValueChanged="N202Slider_ValueChanged"
                         Margin="5"/>
-            </Grid>
-        </StackLayout>
+                </Grid>
+                <Label Text="Kit Used:"
+                   Style="{StaticResource LabelStyle}"
+                   FontSize="Large"
+                   TextColor="{StaticResource Purple}"
+                   Margin="5,10,0,0"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                    <Editor x:Name="KitUsedEditor"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Fill"
+                    Placeholder="Enter Kit Used here..."
+                    TextColor="{StaticResource DarkBlue}"
+                    AutoSize="TextChanges"
+                    MaxLength="300"
+                    FontFamily="Raleway-Regular"/>
+                </Grid>
+                <Button x:Name="SaveBtn"
+                        Clicked="SaveBtn_Clicked"
+                    Text="Save Shift Details"
+                    Style="{StaticResource ButtonStyle}"/>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

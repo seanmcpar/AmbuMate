@@ -12,32 +12,33 @@ namespace AmbuMate.Entities
         [PrimaryKey, AutoIncrement]
         public string ID { get; set; }
         public string ShiftID { get; set; }
-        public bool ParaBag { get; set; }
-        public bool DrugsBag { get; set; }
-        public bool Zoll { get; set; }
-        public bool CarryChair { get; set; }
-        public bool WheelChair { get; set; }
-        public bool Stretcher { get; set; }
-        public bool VomitBowl { get; set; }
-        public bool Wipes { get; set; }
-        public bool BlueRoll { get; set; }
-        public bool Sheets { get; set; }
-        public bool Pillows { get; set; }
-        public bool Blankets { get; set; }
-        public bool SPO2 { get; set; }
-        public bool BPCuff { get; set; }
-        public bool Thermo { get; set; }
-        public bool Plasters { get; set; }
-        public bool WoundDressing { get; set; }
-        public bool Gauze { get; set; }
-        public bool CleansingWipes { get; set; }
-        public bool PinsClips { get; set; }
-        public bool Tape { get; set; }
-        public bool Tweezers { get; set; }
-        public bool Scissors { get; set; }
-        public bool FoilBlanket { get; set; }
-        public bool Torch { get; set; }
-        public bool BVMask { get; set; }
+        public string ParaBag { get; set; }
+        public string DrugsBag { get; set; }
+        public string Zoll { get; set; }
+        public string CarryChair { get; set; }
+        public string WheelChair { get; set; }
+        public string Stretcher { get; set; }
+        public string VomitBowl { get; set; }
+        public string Wipes { get; set; }
+        public string BlueRoll { get; set; }
+        public string Sheets { get; set; }
+        public string Pillows { get; set; }
+        public string Blankets { get; set; }
+        public string SPO2 { get; set; }
+        public string BPCuff { get; set; }
+        public string Thermometer { get; set; }
+        public string bandages { get; set; }
+        public string Plasters { get; set; }
+        public string WoundDressing { get; set; }
+        public string Gauze { get; set; }
+        public string CleansingWipe { get; set; }
+        public string PinsClips { get; set; }
+        public string Tape { get; set; }
+        public string Tweezers { get; set; }
+        public string Scissors { get; set; }
+        public string FoilBlanket { get; set; }
+        public string Torch { get; set; }
+        public string BVMask { get; set; }
         public int O2 { get; set; }
         public int N2O2 { get; set; }
         public string KitUsed { get; set; }

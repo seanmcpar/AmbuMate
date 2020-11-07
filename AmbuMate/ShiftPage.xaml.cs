@@ -24,7 +24,7 @@ namespace AmbuMate
         public ShiftPage()
         {
             InitializeComponent();
-            NavigationPage.SetHasBackButton(this, false);
+            //NavigationPage.SetHasBackButton(this, false);
         }
         
         protected override void OnAppearing()
@@ -48,10 +48,17 @@ namespace AmbuMate
             }
         }
 
+        protected override void OnDisappearing()
+        {
+            App.currentShift = CurrentShiftDetails();
+            Navigation.PopAsync();
+            base.OnDisappearing();
+        }
+
         protected override bool OnBackButtonPressed()
         {
             App.currentShift = CurrentShiftDetails();
-            Navigation.PushAsync(new HomePage());
+            Navigation.PopAsync();
             return true;
         }
 

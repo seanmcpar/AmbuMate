@@ -49,15 +49,22 @@ namespace AmbuMate
                     App.currentPatients = currentPatients;
                 }
             }
-            else if (App.currentShift.ID != null)
+            if (App.currentShift.ID != null)
                 {
-                Vehicle currentVehicle = (await App.MobileService.GetTable<Vehicle>().Where(v => v.ShiftID == App.currentShift.ID).ToListAsync()).FirstOrDefault();
-                Kit currentKit = (await App.MobileService.GetTable<Kit>().Where(k => k.ShiftID == App.currentShift.ID).ToListAsync()).FirstOrDefault();
-                List<Patient> currentPatients = await App.MobileService.GetTable<Patient>().Where(p => p.ShiftID == App.currentShift.ID).ToListAsync();
-                App.currentVehicle = currentVehicle;
-                App.currentKit = currentKit;
-                App.currentPatients = currentPatients;
+                if (App.currentVehicle == null) {
+                    Vehicle currentVehicle = (await App.MobileService.GetTable<Vehicle>().Where(v => v.ShiftID == App.currentShift.ID).ToListAsync()).FirstOrDefault();
+                    App.currentVehicle = currentVehicle;
+                }
+                if (App.currentKit == null) {
+                    Kit currentKit = (await App.MobileService.GetTable<Kit>().Where(k => k.ShiftID == App.currentShift.ID).ToListAsync()).FirstOrDefault();
+                    App.currentKit = currentKit;
+                }
 
+                if (App.currentPatients == null)
+                {
+                    List<Patient> currentPatients = await App.MobileService.GetTable<Patient>().Where(p => p.ShiftID == App.currentShift.ID).ToListAsync();
+                    App.currentPatients = currentPatients;
+                }
             }
             base.OnAppearing();
         }

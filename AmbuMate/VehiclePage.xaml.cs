@@ -18,7 +18,11 @@ namespace AmbuMate
         public VehiclePage()
         {
             InitializeComponent();
-            NavigationPage.SetHasBackButton(this, false);
+            //NavigationPage.SetHasBackButton(this, false);
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
 
             vehicleData = App.currentVehicle;
             if (vehicleData != null && vehicleData.Status == "Active")
@@ -38,18 +42,24 @@ namespace AmbuMate
                 if (App.currentVehicle.VehicleNotes != null) { VehicleNotesEntry.Text = App.currentVehicle.VehicleNotes; }
             }
         }
-
         private void FuelSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             FuelLabel.Text = "Fuel:\r\n" + Convert.ToInt32(FuelSlider.Value) + "%";
         }
 
 
-        //stores entered user details in SQLite Shift Table
+        protected override void OnDisappearing()
+        {
+            App.currentVehicle = CurrentVehicleDetails();
+            Navigation.PopAsync();
+            base.OnDisappearing();
+        }
+
+        //stores entered user details App fields when user presses back button
         protected override bool OnBackButtonPressed()
         {
             App.currentVehicle = CurrentVehicleDetails();
-            Navigation.PushAsync(new HomePage());
+            Navigation.PopAsync();
             return true;
         }
 
@@ -81,6 +91,8 @@ namespace AmbuMate
             Vehicle vehicle = new Vehicle();
             {
                 if (App.currentVehicle != null) { vehicle.ID = App.currentVehicle.ID; }
+                vehicle.Status = "Active";
+                vehicle.ShiftID = App.currentShift.ID;
                 vehicle.Registration = RegNoEntry.Text;
                 if (int.TryParse(StartMileageEntry.Text, out int startMileage))
                 {
@@ -100,8 +112,6 @@ namespace AmbuMate
                 vehicle.DeepClean = DeepCleanSwitch.IsToggled.ToString();
                 vehicle.Fuel = Convert.ToInt32(FuelSlider.Value);
                 vehicle.VehicleNotes = VehicleNotesEntry.Text;
-                vehicle.Status = "Active";
-                vehicle.ShiftID = App.currentShift.ID;
             }
             return vehicle;
         }
