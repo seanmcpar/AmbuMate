@@ -4,9 +4,37 @@
              x:Class="AmbuMate.CompletedPatientsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Grid Padding="5,10,5,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Label Text="Patient Name:"
+                       FontSize="18"/>
+                <Label Text="Destination:"
+                       Grid.Column="1"
+                       FontSize="18"/>
+            </Grid>
+            <ListView x:Name="CompletedPatientsListview"
+                      RowHeight="75"
+                      SeparatorColor="{StaticResource Purple}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Tapped="ViewCell_Tapped">
+                            <StackLayout Orientation="Vertical">
+                                <Grid Padding="5,0">
+                                    <Label Text="{Binding FirstName}"
+                                           TextColor="{StaticResource DarkBlue}"/>
+                                    <Label Text="{Binding Surname}"
+                                           Grid.Row="1"
+                                           TextColor="{StaticResource DarkBlue}"/>
+                                    <Label Text="{Binding DropOff}"
+                                           Grid.Column="1"/>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

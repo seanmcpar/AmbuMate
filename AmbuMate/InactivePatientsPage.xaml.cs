@@ -39,5 +39,11 @@ namespace AmbuMate
                 lastCell = viewCell;
             }
         }
+
+        private void InactivePatientsListview_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var selectedItem = InactivePatientsListview.SelectedItem as Patient;
+            Navigation.PushAsync(new InactivePatientFormPage(selectedItem));
+        }
     }
 }

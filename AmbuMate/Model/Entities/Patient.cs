@@ -41,5 +41,17 @@ namespace AmbuMate.Entities
             var patients = await App.MobileService.GetTable<Patient>().Where(p => p.ShiftID == App.currentShift.ID && p.Status == "Inactive").ToListAsync();
             return patients;
         }
+
+        public static async Task<List<Patient>> ReadActivePatients()
+        {
+            var patients = await App.MobileService.GetTable<Patient>().Where(p => p.ShiftID == App.currentShift.ID && p.Status == "Active").ToListAsync();
+            return patients;
+        }
+
+        public static async Task<List<Patient>> ReadCompletePatients()
+        {
+            var patients = await App.MobileService.GetTable<Patient>().Where(p => p.ShiftID == App.currentShift.ID && p.Status == "Complete").ToListAsync();
+            return patients;
+        }
     }
 }
