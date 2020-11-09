@@ -298,7 +298,7 @@
                 </Grid>
                 <Button x:Name="SaveBtn"
                         Clicked="SaveBtn_Clicked"
-                    Text="Save Shift Details"
+                    Text="Save"
                     Style="{StaticResource ButtonStyle}"/>
             </StackLayout>
         </ScrollView>

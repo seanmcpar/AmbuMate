@@ -51,7 +51,8 @@
                        Grid.Column="1"
                        FontSize="18"
                        VerticalOptions="Center"/>
-                <Switch Grid.Column="1"
+                <Switch x:Name="InfectiousSwitch"
+                        Grid.Column="1"
                         HorizontalOptions="EndAndExpand"
                         Margin="10,0,15,0"
                         Style="{StaticResource SwitchStyle}"/>
@@ -59,7 +60,8 @@
             <ImageButton x:Name="addPatientBtn"
                          HorizontalOptions="CenterAndExpand"
                          VerticalOptions="CenterAndExpand"
-                         BackgroundColor="Transparent"/>
+                         BackgroundColor="Transparent"
+                         Clicked="addPatientBtn_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

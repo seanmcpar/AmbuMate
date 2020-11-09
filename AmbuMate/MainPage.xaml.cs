@@ -26,51 +26,15 @@ namespace AmbuMate
 
         private async void LogInBtn_Clicked(object sender, EventArgs e)
         {
-            if (idEntry.Text != null && passwordEntry.Text != null)
+            bool login = await Staff.LogIn(idEntry.Text, passwordEntry.Text);
+
+            if (login == true)
             {
-                if (int.TryParse(idEntry.Text.Trim(), out int id))
-                {
-                    try { 
-                    //reads the azure sql database and fetches any staff members matching the ID entered by the user
-                    var user = (await App.MobileService.GetTable<Staff>().Where(s => s.ID == id).ToListAsync()).FirstOrDefault();
-
-                        if (user != null)
-                        {
-                            Password password = new Password();
-                            if (password.Verify(passwordEntry.Text.Trim(), user.PasswordHash))
-                            {
-                                App.currentUser = user;
-                                App.Current.MainPage = new NavigationPage( new HomePage());
-                            }
-                            else
-                            {
-                                await DisplayAlert("Access Denied", "Incorrect Log In Details.", "Ok");
-                                passwordEntry.Text = "";
-                            }
-                        }
-                        else
-                        {
-                            await DisplayAlert("Access Denied", "Incorrect Log In Details.", "Ok");
-                            passwordEntry.Text = "";
-                        }
-
-                    }
-                    catch(Exception ex)
-                    {
-                        await DisplayAlert("Error", ex.ToString(), "Ok");
-                    }
-                    
-                }
-                else
-                {
-                    await DisplayAlert("Access Denied", "Incorrect Log In Details.", "Ok");
-                    passwordEntry.Text = "";
-                }
-
+                App.Current.MainPage = new NavigationPage(new HomePage());
             }
             else
             {
-                await DisplayAlert("Access Denied", "Please enter valid log in credentials.", "Ok");
+               await DisplayAlert("Access Denied", "The details you have entered are incorrect. Please try again.", "Ok");
             }
         }
       

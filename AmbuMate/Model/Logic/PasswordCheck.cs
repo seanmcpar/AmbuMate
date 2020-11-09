@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AmbuMate.Logic
 {
-    public class Password
+    public class PasswordCheck
     {
 
         // Size of salt.

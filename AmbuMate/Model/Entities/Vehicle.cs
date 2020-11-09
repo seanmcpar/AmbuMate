@@ -26,5 +26,15 @@ namespace AmbuMate.Entities
         public string Status { get; set; }
         public string VehicleNotes { get; set; }
 
+        public static async void Insert(Vehicle vehicle)
+        {
+            await App.MobileService.GetTable<Vehicle>().InsertAsync(vehicle);
+        }
+
+        public static async void Update(Vehicle vehicle)
+        {
+            await App.MobileService.GetTable<Vehicle>().UpdateAsync(vehicle);
+        }
+
     }
 }

@@ -42,16 +42,11 @@ namespace AmbuMate
                 ShiftEndTime.Time = shiftData.EndTime.TimeOfDay;
                 ShiftNotes.Text = shiftData.Notes;
             }
-            else
-            {
-                AttendantIDEntry.Text = App.currentUser.ID.ToString();
-            }
         }
 
         protected override void OnDisappearing()
         {
             App.currentShift = CurrentShiftDetails();
-            Navigation.PopAsync();
             base.OnDisappearing();
         }
 
@@ -62,7 +57,7 @@ namespace AmbuMate
             return true;
         }
 
-        private async void SaveBtn_Clicked(object sender, EventArgs e)
+        private void SaveBtn_Clicked(object sender, EventArgs e)
         {
             Shift currentShift = CurrentShiftDetails();
             try
@@ -70,16 +65,18 @@ namespace AmbuMate
                 App.currentShift = currentShift;
                 if (currentShift.ID != null)
                 {
-                    await App.MobileService.GetTable<Shift>().UpdateAsync(currentShift);
+                    Shift.Update(currentShift);
+                    DisplayAlert("Success", "Shift Details Updated.", "Ok");
                 }
                 else
                 {
-                    await App.MobileService.GetTable<Shift>().InsertAsync(currentShift);
+                    Shift.Insert(currentShift);
+                    DisplayAlert("Success", "Shift Details Saved.", "Ok");
                 }
             }
             catch(Exception ex)
             {
-                await DisplayAlert("Error", ex.ToString(), "ok");
+                DisplayAlert("Error", "Saving shift details failed.", "ok");
             }
         }
         private Shift CurrentShiftDetails()

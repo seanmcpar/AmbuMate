@@ -25,6 +25,8 @@ namespace AmbuMate
             base.OnAppearing();
 
             kitData = App.currentKit;
+            RegNumberEntry.Text = App.currentVehicle.Registration;
+
             if (kitData != null && kitData.Status == "Active")
             {
                 ParaBagSwitch.IsToggled = bool.Parse(kitData.ParaBag);
@@ -63,7 +65,6 @@ namespace AmbuMate
         protected override void OnDisappearing()
         {
             App.currentKit = CurrentKitDetails();
-            Navigation.PopAsync();
             base.OnDisappearing();
         }
 
@@ -85,7 +86,7 @@ namespace AmbuMate
         }
 
 
-        private async void SaveBtn_Clicked(object sender, EventArgs e)
+        private void SaveBtn_Clicked(object sender, EventArgs e)
         {
             Kit currentKit = CurrentKitDetails();
             try
@@ -93,16 +94,16 @@ namespace AmbuMate
                 App.currentKit = currentKit;
                 if (currentKit.ID != null)
                 {
-                    await App.MobileService.GetTable<Kit>().UpdateAsync(currentKit);
+                    Kit.Update(currentKit);
                 }
                 else
                 {
-                    await App.MobileService.GetTable<Kit>().InsertAsync(currentKit);
+                    Kit.Insert(currentKit);
                 }
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Error", ex.ToString(), "ok");
+                DisplayAlert("Error", "Kit details failed to save.", "ok");
             }
         }
 

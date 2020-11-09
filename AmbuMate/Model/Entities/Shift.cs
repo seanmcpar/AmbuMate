@@ -19,6 +19,16 @@ namespace AmbuMate.Entities
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public string Notes { get; set; }
+
+        public static async void Insert(Shift shift)
+        {
+            await App.MobileService.GetTable<Shift>().InsertAsync(shift);
+        }
+        public static async void Update(Shift shift)
+        {
+            await App.MobileService.GetTable<Shift>().UpdateAsync(shift);
+        }
+
     }
 
 }

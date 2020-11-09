@@ -64,7 +64,7 @@ namespace AmbuMate
         }
 
 
-        private async void SaveBtn_Clicked(object sender, EventArgs e)
+        private void SaveBtn_Clicked(object sender, EventArgs e)
         {
             Vehicle currentVehicle = CurrentVehicleDetails();
             try
@@ -72,16 +72,18 @@ namespace AmbuMate
                 App.currentVehicle = currentVehicle;
                 if (currentVehicle.ID != null)
                 {
-                    await App.MobileService.GetTable<Vehicle>().UpdateAsync(currentVehicle);
+                    Vehicle.Update(currentVehicle);
+                    DisplayAlert("Success", "Vehicle Details Updated.", "Ok");
                 }
                 else
                 {
-                    await App.MobileService.GetTable<Vehicle>().InsertAsync(currentVehicle);
+                    Vehicle.Insert(currentVehicle);
+                    DisplayAlert("Success", "Vehicle Details Saved.", "Ok");
                 }
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Error", ex.ToString(), "ok");
+                DisplayAlert("Error", "Vehicle details failed to save.", "Ok");
             }
         }
 

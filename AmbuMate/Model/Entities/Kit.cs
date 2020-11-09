@@ -43,5 +43,15 @@ namespace AmbuMate.Entities
         public int N2O2 { get; set; }
         public string KitUsed { get; set; }
         public string Status { get; set; }
+
+        public static async void Insert(Kit kit)
+        {
+            await App.MobileService.GetTable<Kit>().InsertAsync(kit);
+        }
+
+        public static async void Update(Kit kit)
+        {
+            await App.MobileService.GetTable<Kit>().UpdateAsync(kit);
+        }
     }
 }

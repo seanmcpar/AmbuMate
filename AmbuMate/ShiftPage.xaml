@@ -14,6 +14,9 @@
         <StackLayout
             x:Name="stakclayoutthing">
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="110"/>
+                </Grid.ColumnDefinitions>
                 <Label Style="{StaticResource LabelStyle}"
                    Text="Attendant ID:"/>
                 <Entry x:Name="AttendantIDEntry"
@@ -92,7 +95,7 @@
                     />
             <Button x:Name="SaveBtn"
                     Clicked="SaveBtn_Clicked"
-                    Text="Save Shift Details"
+                    Text="Save"
                     Style="{StaticResource ButtonStyle}"/>
         </StackLayout>
     </ContentPage.Content>
