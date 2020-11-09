@@ -13,17 +13,24 @@
     <ContentPage.Content>
         <StackLayout
             x:Name="stakclayoutthing">
-            <Label Style="{StaticResource LabelStyle}"
-                   Text="Crew IDs:"/>
-            <Entry x:Name="AttendantIDEntry"
+            <Grid>
+                <Label Style="{StaticResource LabelStyle}"
+                   Text="Attendant ID:"/>
+                <Entry x:Name="AttendantIDEntry"
                    Style="{StaticResource EntryStyle}"
                    Placeholder="Attendant ID"
-                   Keyboard="Numeric"/>
-            <Entry x:Name="DriverIDEntry"
+                   Keyboard="Numeric"
+                       Grid.Column="1"/>
+                <Label Style="{StaticResource LabelStyle}"
+                   Text="Driver ID:"
+                       Grid.Row="1"/>
+                <Entry x:Name="DriverIDEntry"
                    Style="{StaticResource EntryStyle}"
                    Placeholder="Driver ID"
-                   Keyboard="Numeric"/>
-            
+                   Keyboard="Numeric"
+                       Grid.Row="1"
+                       Grid.Column="1"/>
+            </Grid>
             <Label Style="{StaticResource LabelStyle}"
                    Text="Crew Number:"/>
             <Picker x:Name="CrewNoPicker"
