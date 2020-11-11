@@ -70,7 +70,7 @@ namespace AmbuMate
             try
             {
                 App.currentVehicle = currentVehicle;
-                if (currentVehicle.ID != null)
+                if (currentVehicle.Id != null)
                 {
                     Vehicle.Update(currentVehicle);
                     DisplayAlert("Success", "Vehicle Details Updated.", "Ok");
@@ -92,9 +92,9 @@ namespace AmbuMate
         {
             Vehicle vehicle = new Vehicle();
             {
-                if (App.currentVehicle != null) { vehicle.ID = App.currentVehicle.ID; }
+                if (App.currentVehicle != null) { vehicle.Id = App.currentVehicle.Id; }
                 vehicle.Status = "Active";
-                vehicle.ShiftID = App.currentShift.ID;
+                vehicle.ShiftID = App.currentShift.Id;
                 vehicle.Registration = RegNoEntry.Text;
                 if (int.TryParse(StartMileageEntry.Text, out int startMileage))
                 {

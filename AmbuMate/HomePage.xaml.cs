@@ -34,27 +34,27 @@ namespace AmbuMate
         //Reads AmbuMate database and fills App data fields with relevant shift information
         protected async override void OnAppearing()
         {
-            if (App.currentShift.ID == null)
+            if (App.currentShift.Id == null)
             {
                  Shift dbShift = (await App.MobileService.GetTable<Shift>().Where(s => s.AttendantID == App.currentUser.ID && (s.ShiftDate == DateTime.Today || s.ShiftDate == DateTime.Today.AddDays(-1)) && s.ShiftStatus == "Active").ToListAsync()).FirstOrDefault();
                  
                 if (dbShift != null)
                 {
                     App.currentShift = dbShift;
-                    Vehicle currentVehicle = (await App.MobileService.GetTable<Vehicle>().Where(v => v.ShiftID == App.currentShift.ID).ToListAsync()).FirstOrDefault();
-                    Kit currentKit = (await App.MobileService.GetTable<Kit>().Where(k => k.ShiftID == App.currentShift.ID).ToListAsync()).FirstOrDefault();
+                    Vehicle currentVehicle = (await App.MobileService.GetTable<Vehicle>().Where(v => v.ShiftID == App.currentShift.Id).ToListAsync()).FirstOrDefault();
+                    Kit currentKit = (await App.MobileService.GetTable<Kit>().Where(k => k.ShiftID == App.currentShift.Id).ToListAsync()).FirstOrDefault();
                     App.currentVehicle = currentVehicle;
                     App.currentKit = currentKit;
                 }
             }
-            if (App.currentShift.ID != null)
+            if (App.currentShift.Id != null)
                 {
                 if (App.currentVehicle == null) {
-                    Vehicle currentVehicle = (await App.MobileService.GetTable<Vehicle>().Where(v => v.ShiftID == App.currentShift.ID).ToListAsync()).FirstOrDefault();
+                    Vehicle currentVehicle = (await App.MobileService.GetTable<Vehicle>().Where(v => v.ShiftID == App.currentShift.Id).ToListAsync()).FirstOrDefault();
                     App.currentVehicle = currentVehicle;
                 }
                 if (App.currentKit == null) {
-                    Kit currentKit = (await App.MobileService.GetTable<Kit>().Where(k => k.ShiftID == App.currentShift.ID).ToListAsync()).FirstOrDefault();
+                    Kit currentKit = (await App.MobileService.GetTable<Kit>().Where(k => k.ShiftID == App.currentShift.Id).ToListAsync()).FirstOrDefault();
                     App.currentKit = currentKit;
                 }
             }

@@ -33,7 +33,7 @@ namespace AmbuMate
                 DrugsBagSwitch.IsToggled = bool.Parse(kitData.DrugsBag);
                 ZollSwitch.IsToggled = bool.Parse(kitData.Zoll);
                 CarryChairSwitch.IsToggled = bool.Parse(kitData.CarryChair);
-                WheelChairSwitch.IsToggled = bool.Parse(kitData.WheelChair);
+                WheelChairSwitch.IsToggled = bool.Parse(kitData.Wheelchair);
                 StretcherSwitch.IsToggled= bool.Parse(kitData.Stretcher);
                 VomitBowlSwitch.IsToggled = bool.Parse(kitData.VomitBowl);
                 WipesSwitch.IsToggled = bool.Parse(kitData.Wipes);
@@ -44,7 +44,7 @@ namespace AmbuMate
                 Spo2Switch.IsToggled = bool.Parse(kitData.SPO2);
                 BPCuffSwitch.IsToggled = bool.Parse(kitData.BPCuff);
                 ThermoSwitch.IsToggled = bool.Parse(kitData.Thermometer);
-                BandagesSwitch.IsToggled = bool.Parse(kitData.bandages);
+                BandagesSwitch.IsToggled = bool.Parse(kitData.Bandages);
                 PlastersSwitch.IsToggled = bool.Parse(kitData.Plasters);
                 WoundDressSwitch.IsToggled = bool.Parse(kitData.WoundDressing);
                 GauzeSwitch.IsToggled = bool.Parse(kitData.Gauze);
@@ -92,7 +92,7 @@ namespace AmbuMate
             try
             {
                 App.currentKit = currentKit;
-                if (currentKit.ID != null)
+                if (currentKit.Id != null)
                 {
                     Kit.Update(currentKit);
                 }
@@ -111,14 +111,14 @@ namespace AmbuMate
         {
             Kit kit = new Kit();
             {
-                if (App.currentKit != null) { kit.ID = App.currentKit.ID; }
-                kit.ShiftID = App.currentShift.ID;
+                if (App.currentKit != null) { kit.Id = App.currentKit.Id; }
+                kit.ShiftID = App.currentShift.Id;
                 kit.Status = "Active";
                 kit.ParaBag = ParaBagSwitch.IsToggled.ToString();
                 kit.DrugsBag = DrugsBagSwitch.IsToggled.ToString();
                 kit.Zoll = ZollSwitch.IsToggled.ToString();
                 kit.CarryChair = CarryChairSwitch.IsToggled.ToString();
-                kit.WheelChair = WheelChairSwitch.IsToggled.ToString();
+                kit.Wheelchair = WheelChairSwitch.IsToggled.ToString();
                 kit.Stretcher = StretcherSwitch.IsToggled.ToString();
                 kit.VomitBowl = VomitBowlSwitch.IsToggled.ToString();
                 kit.Wipes = WipesSwitch.IsToggled.ToString();
@@ -129,7 +129,7 @@ namespace AmbuMate
                 kit.SPO2 = Spo2Switch.IsToggled.ToString();
                 kit.BPCuff = BPCuffSwitch.IsToggled.ToString();
                 kit.Thermometer = ThermoSwitch.IsToggled.ToString();
-                kit.bandages = BandagesSwitch.IsToggled.ToString();
+                kit.Bandages = BandagesSwitch.IsToggled.ToString();
                 kit.Plasters = PlastersSwitch.IsToggled.ToString();
                 kit.WoundDressing = WoundDressSwitch.IsToggled.ToString();
                 kit.Gauze = GauzeSwitch.IsToggled.ToString();

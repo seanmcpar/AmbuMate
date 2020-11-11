@@ -63,7 +63,7 @@ namespace AmbuMate
             try
             {
                 App.currentShift = currentShift;
-                if (currentShift.ID != null)
+                if (currentShift.Id != null)
                 {
                     Shift.Update(currentShift);
                     DisplayAlert("Success", "Shift Details Updated.", "Ok");
@@ -83,7 +83,7 @@ namespace AmbuMate
         {
             Shift shift = new Shift();
             {
-                if (App.currentShift.ID != null) { shift.ID = App.currentShift.ID; }
+                if (App.currentShift.Id != null) { shift.Id = App.currentShift.Id; }
                 if (int.TryParse(AttendantIDEntry.Text, out int AttendantID))
                 {
                     shift.AttendantID = AttendantID;

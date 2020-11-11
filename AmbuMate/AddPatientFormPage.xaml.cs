@@ -41,7 +41,7 @@ namespace AmbuMate
             Patient patient = new Patient()
             {
                 Reference = int.Parse(PatientReferenceEntry.Text),
-                ShiftID = App.currentShift.ID,
+                ShiftID = App.currentShift.Id,
                 Status = "Inactive",
                 FirstName = FirstNameEntry.Text,
                 Surname = SurnameEntry.Text,
