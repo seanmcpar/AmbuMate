@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AmbuMate.Entities
 {
-    public class Patient : INotifyPropertyChanged
+    public class Patient //: INotifyPropertyChanged
     {
         private string id;
 
@@ -16,7 +16,7 @@ namespace AmbuMate.Entities
         {
             get { return id; }
             set { id = value;
-                OnPropertyChanged("Id");
+                //OnPropertyChanged("Id");
                     }
         }
 
@@ -26,7 +26,7 @@ namespace AmbuMate.Entities
         {
             get { return reference; }
             set { reference = value;
-                OnPropertyChanged("Reference");
+                //OnPropertyChanged("Reference");
             }
         }
 
@@ -36,7 +36,7 @@ namespace AmbuMate.Entities
         {
             get { return shiftID; }
             set { shiftID = value;
-                OnPropertyChanged("ShiftID");
+                //OnPropertyChanged("ShiftID");
             }
         }
 
@@ -46,7 +46,7 @@ namespace AmbuMate.Entities
         {
             get { return status; }
             set { status = value;
-                OnPropertyChanged("Status");
+                //OnPropertyChanged("Status");
             }
         }
 
@@ -56,7 +56,7 @@ namespace AmbuMate.Entities
         {
             get { return firstName; }
             set { firstName = value;
-                OnPropertyChanged("FirstName");
+                //OnPropertyChanged("FirstName");
             }
         }
 
@@ -66,7 +66,7 @@ namespace AmbuMate.Entities
         {
             get { return surname; }
             set { surname = value;
-                OnPropertyChanged("Surname");
+                //OnPropertyChanged("Surname");
             }
         }
 
@@ -76,7 +76,7 @@ namespace AmbuMate.Entities
         {
             get { return pickup; }
             set { pickup = value;
-                OnPropertyChanged("PickUp");
+                //OnPropertyChanged("PickUp");
             }
         }
 
@@ -86,7 +86,7 @@ namespace AmbuMate.Entities
         {
             get { return dropoff; }
             set { dropoff = value;
-                OnPropertyChanged("DropOff");
+                //OnPropertyChanged("DropOff");
             }
         }
 
@@ -96,7 +96,7 @@ namespace AmbuMate.Entities
         {
             get { return specialrequirements; }
             set { specialrequirements = value;
-                OnPropertyChanged("SpecialRequirements");
+                //OnPropertyChanged("SpecialRequirements");
             }
         }
 
@@ -106,7 +106,7 @@ namespace AmbuMate.Entities
         {
             get { return infectious; }
             set { infectious = value;
-                OnPropertyChanged("Infectious");
+                //OnPropertyChanged("Infectious");
             }
         }
 
@@ -116,7 +116,7 @@ namespace AmbuMate.Entities
         {
             get { return arrivepickup; }
             set { arrivepickup = value;
-                OnPropertyChanged("ArrivePickUp");
+                //OnPropertyChanged("ArrivePickUp");
             }
         }
 
@@ -126,7 +126,7 @@ namespace AmbuMate.Entities
         {
             get { return departpickup; }
             set { departpickup = value;
-                OnPropertyChanged("DepartPickUp");
+                //OnPropertyChanged("DepartPickUp");
             }
         }
 
@@ -134,9 +134,9 @@ namespace AmbuMate.Entities
 
         public DateTime ArriveDropOff
         {
-            get { return departpickup; }
-            set { departpickup = value;
-                OnPropertyChanged("ArriveDropOff");
+            get { return arrivedropoff; }
+            set { arrivedropoff = value;
+                //OnPropertyChanged("ArriveDropOff");
             }
         }
         
@@ -144,9 +144,9 @@ namespace AmbuMate.Entities
 
         public DateTime DepartDropOff
         {
-            get { return departpickup; }
-            set { departpickup = value;
-                OnPropertyChanged("DepartDropOff");
+            get { return departDropOff; }
+            set { departDropOff = value;
+                //OnPropertyChanged("DepartDropOff");
             }
         }
         
@@ -156,12 +156,12 @@ namespace AmbuMate.Entities
         {
             get { return notes; }
             set { notes = value;
-                OnPropertyChanged("Notes");
+                //OnPropertyChanged("Notes");
             }
         }
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
+       //public event PropertyChangedEventHandler PropertyChanged;
 
         public static async void Insert(Patient patient)
         {
@@ -191,9 +191,9 @@ namespace AmbuMate.Entities
             return patients;
         }
 
-        private void OnPropertyChanged(string propertyName)
+       /* private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
+        }*/
     }
 }

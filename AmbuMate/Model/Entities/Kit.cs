@@ -8,7 +8,7 @@ using System.Text;
 
 namespace AmbuMate.Entities
 {
-    public class Kit : INotifyPropertyChanged
+    public class Kit //: INotifyPropertyChanged
     {
         private string id;
 
@@ -18,7 +18,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 id = value;
-                OnPropertyChanged("Id");
+                //OnPropertyChanged("Id");
             }
         }
 
@@ -28,7 +28,7 @@ namespace AmbuMate.Entities
         {
             get { return shiftID; }
             set { shiftID = value;
-                OnPropertyChanged("ShiftID");
+                //OnPropertyChanged("ShiftID");
             }
         }
 
@@ -38,7 +38,7 @@ namespace AmbuMate.Entities
         {
             get { return paraBag; }
             set { paraBag = value;
-                OnPropertyChanged("ParaBag");
+               // OnPropertyChanged("ParaBag");
             }
         }
 
@@ -48,7 +48,7 @@ namespace AmbuMate.Entities
         {
             get { return drugsBag; }
             set { drugsBag = value;
-                OnPropertyChanged("DrugsBag");
+                //OnPropertyChanged("DrugsBag");
             }
         }
 
@@ -58,7 +58,7 @@ namespace AmbuMate.Entities
         {
             get { return zoll; }
             set { zoll = value;
-                OnPropertyChanged("Zoll");
+                //OnPropertyChanged("Zoll");
             }
         }
 
@@ -68,7 +68,7 @@ namespace AmbuMate.Entities
         {
             get { return carryChair; }
             set { carryChair = value;
-                OnPropertyChanged("CarryChair");
+                //OnPropertyChanged("CarryChair");
             }
         }
 
@@ -78,7 +78,7 @@ namespace AmbuMate.Entities
         {
             get { return wheelchair; }
             set { wheelchair = value;
-                OnPropertyChanged("Wheelchair");
+               // OnPropertyChanged("Wheelchair");
             }
         }
 
@@ -88,7 +88,7 @@ namespace AmbuMate.Entities
         {
             get { return stretcher; }
             set { stretcher = value;
-                OnPropertyChanged("Stretcher");
+                //OnPropertyChanged("Stretcher");
             }
         }
 
@@ -98,7 +98,7 @@ namespace AmbuMate.Entities
         {
             get { return vomitBowl; }
             set { vomitBowl = value;
-                OnPropertyChanged("VomitBowl");
+               // OnPropertyChanged("VomitBowl");
             }
         }
 
@@ -108,7 +108,7 @@ namespace AmbuMate.Entities
         {
             get { return wipes; }
             set { wipes = value;
-                OnPropertyChanged("Wipes");
+                //OnPropertyChanged("Wipes");
             }
         }
 
@@ -118,7 +118,7 @@ namespace AmbuMate.Entities
         {
             get { return blueRoll; }
             set { blueRoll = value;
-                OnPropertyChanged("BlueRoll");
+               // OnPropertyChanged("BlueRoll");
             }
         }
 
@@ -128,7 +128,7 @@ namespace AmbuMate.Entities
         {
             get { return sheets; }
             set { sheets = value;
-                OnPropertyChanged("Sheets");
+                //OnPropertyChanged("Sheets");
             }
         }
 
@@ -138,7 +138,7 @@ namespace AmbuMate.Entities
         {
             get { return pillows; }
             set { pillows = value;
-                OnPropertyChanged("Pillows");
+                //OnPropertyChanged("Pillows");
             }
         }
 
@@ -148,7 +148,7 @@ namespace AmbuMate.Entities
         {
             get { return blankets; }
             set { blankets = value;
-                OnPropertyChanged("Blankets");
+                //OnPropertyChanged("Blankets");
             }
         }
 
@@ -158,7 +158,7 @@ namespace AmbuMate.Entities
         {
             get { return spo2; }
             set { spo2 = value;
-                OnPropertyChanged("SPO2");
+               // OnPropertyChanged("SPO2");
             }
         }
 
@@ -168,7 +168,7 @@ namespace AmbuMate.Entities
         {
             get { return bpcuff; }
             set { bpcuff = value;
-                OnPropertyChanged("BPCuff");
+               // OnPropertyChanged("BPCuff");
             }
         }
 
@@ -178,7 +178,7 @@ namespace AmbuMate.Entities
         {
             get { return thermometer; }
             set { thermometer = value;
-                OnPropertyChanged("Thermometer");
+                //OnPropertyChanged("Thermometer");
             }
         }
 
@@ -188,7 +188,7 @@ namespace AmbuMate.Entities
         {
             get { return bandages; }
             set { bandages = value;
-                OnPropertyChanged("Bandages");
+                //OnPropertyChanged("Bandages");
             }
         }
 
@@ -198,7 +198,7 @@ namespace AmbuMate.Entities
         {
             get { return plasters; }
             set { plasters = value;
-                OnPropertyChanged("Plasters");
+                //OnPropertyChanged("Plasters");
             }
         }
 
@@ -208,7 +208,7 @@ namespace AmbuMate.Entities
         {
             get { return woundDressing; }
             set { woundDressing = value;
-                OnPropertyChanged("WoundDressing");
+                //OnPropertyChanged("WoundDressing");
             }
         }
 
@@ -218,7 +218,7 @@ namespace AmbuMate.Entities
         {
             get { return gauze; }
             set { gauze = value;
-                OnPropertyChanged("Gauze");
+                //OnPropertyChanged("Gauze");
             }
         }
 
@@ -228,7 +228,7 @@ namespace AmbuMate.Entities
         {
             get { return cleansingWipe; }
             set { cleansingWipe = value;
-                OnPropertyChanged("CleansingWipe");
+                //OnPropertyChanged("CleansingWipe");
             }
         }
 
@@ -238,7 +238,7 @@ namespace AmbuMate.Entities
         {
             get { return pinsclips; }
             set { pinsclips = value;
-                OnPropertyChanged("PinsClips");
+                //OnPropertyChanged("PinsClips");
             }
         }
 
@@ -248,7 +248,7 @@ namespace AmbuMate.Entities
         {
             get { return tape; }
             set { tape = value;
-                OnPropertyChanged("Tape");
+                //OnPropertyChanged("Tape");
             }
         }
 
@@ -258,7 +258,7 @@ namespace AmbuMate.Entities
         {
             get { return tweezers; }
             set { tweezers = value;
-                OnPropertyChanged("Tweezers");
+                //OnPropertyChanged("Tweezers");
             }
         }
 
@@ -268,7 +268,7 @@ namespace AmbuMate.Entities
         {
             get { return scissors; }
             set { scissors = value;
-                OnPropertyChanged("Scissors");
+                //OnPropertyChanged("Scissors");
             }
         }
 
@@ -278,7 +278,7 @@ namespace AmbuMate.Entities
         {
             get { return foilBlanket; }
             set { foilBlanket = value;
-                OnPropertyChanged("FoilBlanket");
+                //OnPropertyChanged("FoilBlanket");
             }
         }
 
@@ -288,7 +288,7 @@ namespace AmbuMate.Entities
         {
             get { return torch; }
             set { torch = value;
-                OnPropertyChanged("Torch");
+               // OnPropertyChanged("Torch");
             }
         }
 
@@ -298,7 +298,7 @@ namespace AmbuMate.Entities
         {
             get { return bvmask; }
             set { bvmask = value;
-                OnPropertyChanged("BVMask");
+                //OnPropertyChanged("BVMask");
             }
         }
 
@@ -308,7 +308,7 @@ namespace AmbuMate.Entities
         {
             get { return o2; }
             set { o2 = value;
-                OnPropertyChanged("O2");
+               // OnPropertyChanged("O2");
             }
         }
 
@@ -318,7 +318,7 @@ namespace AmbuMate.Entities
         {
             get { return n2o2; }
             set { n2o2 = value;
-                OnPropertyChanged("N2O2");
+                //OnPropertyChanged("N2O2");
             }
         }
 
@@ -328,7 +328,7 @@ namespace AmbuMate.Entities
         {
             get { return kitUsed; }
             set { kitUsed = value;
-                OnPropertyChanged("KitUsed");
+                //OnPropertyChanged("KitUsed");
             }
         }
 
@@ -338,12 +338,12 @@ namespace AmbuMate.Entities
         {
             get { return status; }
             set { status = value;
-                OnPropertyChanged("Status");
+               // OnPropertyChanged("Status");
             }
         }
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
+       // public event PropertyChangedEventHandler PropertyChanged;
 
         public static async void Insert(Kit kit)
         {
@@ -355,9 +355,9 @@ namespace AmbuMate.Entities
             await App.MobileService.GetTable<Kit>().UpdateAsync(kit);
         }
 
-        private void OnPropertyChanged (string propertyName)
+        /*private void OnPropertyChanged (string propertyName)
         {
             PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
+        }*/
     }
 }

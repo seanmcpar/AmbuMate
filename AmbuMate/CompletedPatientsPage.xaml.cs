@@ -23,8 +23,8 @@ namespace AmbuMate
         {
             base.OnAppearing();
 
-            var activePatients = await Patient.ReadActivePatients();
-            CompletedPatientsListview.ItemsSource = activePatients;
+            var completePatients = await Patient.ReadCompletePatients();
+            CompletedPatientsListview.ItemsSource = completePatients;
         }
 
         private void ViewCell_Tapped(object sender, EventArgs e)

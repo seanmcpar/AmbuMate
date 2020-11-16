@@ -28,7 +28,7 @@ namespace AmbuMate
             InactivePatientsListview.ItemsSource = inactivePatients;
         }
 
-        private void ViewCell_Tapped(object sender, EventArgs e)
+        private async void ViewCell_Tapped(object sender, EventArgs e)
         {
             if (lastCell != null)
                 lastCell.View.BackgroundColor = Color.Transparent;
@@ -38,12 +38,13 @@ namespace AmbuMate
                 viewCell.View.BackgroundColor = Color.FromHex("DDDDDD");
                 lastCell = viewCell;
             }
+            await Navigation.PushAsync(new InactivePatientFormPage(InactivePatientsListview.SelectedItem as Patient));
         }
 
-        private void InactivePatientsListview_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+       /* private void InactivePatientsListview_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var selectedItem = InactivePatientsListview.SelectedItem as Patient;
             Navigation.PushAsync(new InactivePatientFormPage(selectedItem));
-        }
+        }*/
     }
 }

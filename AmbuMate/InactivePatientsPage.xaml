@@ -16,8 +16,7 @@
             </Grid>
             <ListView x:Name="InactivePatientsListview"
                       RowHeight="75"
-                      SeparatorColor="{StaticResource Purple}"
-                      ItemSelected="InactivePatientsListview_ItemSelected">
+                      SeparatorColor="{StaticResource Purple}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell Tapped="ViewCell_Tapped">

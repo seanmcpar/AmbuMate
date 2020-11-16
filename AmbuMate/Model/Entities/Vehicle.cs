@@ -7,7 +7,7 @@ using System.Text;
 
 namespace AmbuMate.Entities
 {
-    public class Vehicle : INotifyPropertyChanged
+    public class Vehicle //: INotifyPropertyChanged
     {
         private string id;
 
@@ -17,7 +17,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 id = value;
-                OnPropertyChanged("Id");
+                //OnPropertyChanged("Id");
             }
         }
 
@@ -29,7 +29,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 registration = value;
-                OnPropertyChanged("Registration");
+               // OnPropertyChanged("Registration");
             }
         }
 
@@ -41,7 +41,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 shiftID = value;
-                OnPropertyChanged("ShiftID");
+                //OnPropertyChanged("ShiftID");
             }
         }
 
@@ -53,7 +53,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 startMileage = value;
-                OnPropertyChanged("StartMileage");
+               // OnPropertyChanged("StartMileage");
             }
         }
 
@@ -65,7 +65,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 lights = value;
-                OnPropertyChanged("Lights");
+                //OnPropertyChanged("Lights");
             }
         }
 
@@ -77,7 +77,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 signals = value;
-                OnPropertyChanged("Signals");
+                //OnPropertyChanged("Signals");
             }
         }
 
@@ -89,7 +89,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 sirens = value;
-                OnPropertyChanged("Sirens");
+               // OnPropertyChanged("Sirens");
             }
         }
 
@@ -101,7 +101,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 fireExtinguisher = value;
-                OnPropertyChanged("FireExtinguisher");
+               // OnPropertyChanged("FireExtinguisher");
             }
         }
 
@@ -113,7 +113,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 warningTriangle = value;
-                OnPropertyChanged("WarningTriangle");
+                //OnPropertyChanged("WarningTriangle");
             }
         }
 
@@ -125,7 +125,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 fireBlanket = value;
-                OnPropertyChanged("FireBlanket");
+               // OnPropertyChanged("FireBlanket");
             }
         }
 
@@ -137,7 +137,7 @@ namespace AmbuMate.Entities
             set 
             {
                 clean = value;
-                OnPropertyChanged("Clean");
+                //OnPropertyChanged("Clean");
             }
         }
 
@@ -149,7 +149,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 deepClean = value;
-                OnPropertyChanged("DeepClean");
+                //OnPropertyChanged("DeepClean");
             }
         }
 
@@ -161,7 +161,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 fuel = value;
-                OnPropertyChanged("Fuel");
+                //OnPropertyChanged("Fuel");
             }
         }
 
@@ -173,7 +173,7 @@ namespace AmbuMate.Entities
             set 
             {
                 endMileage = value;
-                OnPropertyChanged("EndMileage");
+                //OnPropertyChanged("EndMileage");
             }
         }
 
@@ -185,7 +185,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 status = value;
-                OnPropertyChanged("Status");
+                //OnPropertyChanged("Status");
             }
         }
 
@@ -197,12 +197,12 @@ namespace AmbuMate.Entities
             set 
             { 
                 vehicleNotes = value;
-                OnPropertyChanged("VehicleNotes");
+               // OnPropertyChanged("VehicleNotes");
             }
         }
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
         public static async void Insert(Vehicle vehicle)
         {
@@ -214,10 +214,10 @@ namespace AmbuMate.Entities
             await App.MobileService.GetTable<Vehicle>().UpdateAsync(vehicle);
         }
 
-        private void OnPropertyChanged(string propertyName)
+        /*private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
+        }*/
 
     }
 }

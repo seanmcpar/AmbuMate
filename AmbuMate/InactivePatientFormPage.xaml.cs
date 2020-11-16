@@ -20,12 +20,32 @@ namespace AmbuMate
             InitializeComponent();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            PatientReferenceEntry.Text = currentPatient.Reference.ToString();
+            FirstNameEntry.Text = currentPatient.FirstName;
+            SurnameEntry.Text = currentPatient.Surname;
+            PickupLocationEditor.Text = currentPatient.PickUp;
+            DropoffLocationEditor.Text = currentPatient.DropOff;
+            if (currentPatient.SpecialRequirements != null)
+            {
+                SpecialRequirementsEditor.Text = currentPatient.SpecialRequirements;
+            }
+            else
+            {
+                SpecialRequirementsEditor.Text = "N/A";
+            }
+            InfectiousSwitch.IsToggled = bool.Parse(currentPatient.Infectious);
+
+        }
+
         private void ActivatePatientButton_Clicked(object sender, EventArgs e)
         {
-            currentPatient = PatientDetails();
-            currentPatient.Status = "Active";
-            Patient.Update(currentPatient);
-            Navigation.PopAsync();
+                currentPatient = PatientDetails();
+                currentPatient.Status = "Active";
+                Patient.Update(currentPatient);
+                Navigation.PopAsync();
         }
 
         private Patient PatientDetails()

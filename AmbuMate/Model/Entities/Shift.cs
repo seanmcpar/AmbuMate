@@ -7,7 +7,7 @@ using System.Text;
 
 namespace AmbuMate.Entities
 {
-    public class Shift : INotifyPropertyChanged
+    public class Shift //: INotifyPropertyChanged
     {
         private string id;
 
@@ -17,7 +17,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 id = value;
-                OnPropertyChanged("Id");
+                //OnPropertyChanged("Id");
             }
         }
 
@@ -29,7 +29,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 attendantID = value;
-                OnPropertyChanged("AttendantID");
+                //OnPropertyChanged("AttendantID");
             }
         }
 
@@ -41,7 +41,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 driverID = value;
-                OnPropertyChanged("DriverID");
+                //OnPropertyChanged("DriverID");
             }
         }
 
@@ -53,7 +53,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 crew = value;
-                OnPropertyChanged("Crew");
+                //OnPropertyChanged("Crew");
             }
         }
 
@@ -65,7 +65,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 shiftType = value;
-                OnPropertyChanged("ShiftType");
+                //OnPropertyChanged("ShiftType");
             }
         }
 
@@ -77,7 +77,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 shiftStatus = value;
-                OnPropertyChanged("ShiftStatus");
+                //OnPropertyChanged("ShiftStatus");
             }
         }
 
@@ -89,7 +89,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 shiftDate = value;
-                OnPropertyChanged("ShiftDate");
+                //OnPropertyChanged("ShiftDate");
             }
         }
 
@@ -97,11 +97,11 @@ namespace AmbuMate.Entities
 
         public DateTime StartTime
         {
-            get { return StartTime; }
+            get { return startTime; }
             set 
             {
                 startTime = value;
-                OnPropertyChanged("StartTime");
+                //OnPropertyChanged("StartTime");
             }
         }
 
@@ -113,7 +113,7 @@ namespace AmbuMate.Entities
             set 
             { 
                 endTime = value;
-                OnPropertyChanged("EndTime");
+                //OnPropertyChanged("EndTime");
             }
         }
 
@@ -125,12 +125,12 @@ namespace AmbuMate.Entities
             set 
             {
                 notes = value;
-                OnPropertyChanged("Notes");
+                //OnPropertyChanged("Notes");
             }
         }
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
         public static async void Insert(Shift shift)
         {
@@ -140,11 +140,11 @@ namespace AmbuMate.Entities
         {
             await App.MobileService.GetTable<Shift>().UpdateAsync(shift);
         }
-
+/*
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
+        }*/
 
     }
 

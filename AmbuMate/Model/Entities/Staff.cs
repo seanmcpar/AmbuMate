@@ -10,17 +10,16 @@ using Xamarin.Forms.PlatformConfiguration.TizenSpecific;
 
 namespace AmbuMate.Entities
 {
-    public class Staff : INotifyPropertyChanged
+    public class Staff
     {
         private int id;
 
-        public int Id
+        public int ID
         {
             get { return id; }
             set 
             { 
                 id = value;
-                OnPropertyChanged("Id");
             }
             
         }
@@ -33,7 +32,6 @@ namespace AmbuMate.Entities
             set 
             { 
                 firstName = value;
-                OnPropertyChanged("FirstName");
             }
         }
 
@@ -45,7 +43,6 @@ namespace AmbuMate.Entities
             set 
             { 
                 surname = value;
-                OnPropertyChanged("Surname");
             }
         }
 
@@ -57,7 +54,6 @@ namespace AmbuMate.Entities
             set 
             { 
                 staff_type = value;
-                OnPropertyChanged("Staff_type");
             }
         }
 
@@ -69,12 +65,8 @@ namespace AmbuMate.Entities
             set 
             { 
                 passwordHash = value;
-                OnPropertyChanged("PasswordHash");
             }
         }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public static async Task<bool> LogIn(string id, string password)
         {
@@ -90,7 +82,7 @@ namespace AmbuMate.Entities
                 if (int.TryParse(id.Trim(), out int loginID))
                 {
                     //reads the azure sql database and fetches any staff members matching the ID entered by the user
-                    var user = (await App.MobileService.GetTable<Staff>().Where(s => s.Id == loginID).ToListAsync()).FirstOrDefault();
+                    var user = (await App.MobileService.GetTable<Staff>().Where(s => s.ID == loginID).ToListAsync()).FirstOrDefault();
                     
                     if (user != null)
                     {
@@ -116,11 +108,6 @@ namespace AmbuMate.Entities
                     return false;
                 }
             }
-        }
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
     }
