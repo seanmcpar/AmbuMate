@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using Microsoft.WindowsAzure.MobileServices;
 using System.IO;
+using Acr.UserDialogs;
 
 namespace AmbuMate.Droid
 {
@@ -22,12 +23,16 @@ namespace AmbuMate.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            UserDialogs.Init(this);
+
             string dbName = "ambumate_db.sqlite";
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string fullPath = Path.Combine(folderPath, dbName);
             CurrentPlatform.Init();
+
             LoadApplication(new App(fullPath));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

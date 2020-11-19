@@ -33,6 +33,12 @@
                      HorizontalOptions="FillAndExpand"
                      VerticalOptions="FillAndExpand"
                          Clicked="LogOutBtn_Clicked"/>
+            <ImageButton x:Name="CancelShiftBtn"
+                     BackgroundColor="White"
+                     Grid.Row="1"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                         Clicked="CancelShiftBtn_Clicked"/>
         </Grid>
     </StackLayout>
 </ContentPage>

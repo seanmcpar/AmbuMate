@@ -15,7 +15,6 @@ namespace AmbuMate
 {
     public partial class MainPage : ContentPage
     {
-       
         public MainPage()
         {
             InitializeComponent();
@@ -26,16 +25,20 @@ namespace AmbuMate
 
         private async void LogInBtn_Clicked(object sender, EventArgs e)
         {
-            bool login = await Staff.LogIn(idEntry.Text, passwordEntry.Text);
+            Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Loading...");
 
+            bool login;
+            login = await Staff.LogIn(idEntry.Text, passwordEntry.Text);
             if (login == true)
             {
+                Acr.UserDialogs.UserDialogs.Instance.HideLoading();
                 App.Current.MainPage = new NavigationPage(new HomePage());
             }
             else
-            {
-               await DisplayAlert("Access Denied", "The details you have entered are incorrect. Please try again.", "Ok");
-            }
+             {
+                Acr.UserDialogs.UserDialogs.Instance.HideLoading();
+                await DisplayAlert("Access Denied", "The details you have entered are incorrect. Please try again.", "Ok");
+             }
         }
       
     }

@@ -11,12 +11,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Model_ViewModel\Entities\**" />
+    <EmbeddedResource Remove="Model_ViewModel\Entities\**" />
+    <None Remove="Model_ViewModel\Entities\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Assets\Fonts\LilitaOne-Regular.ttf" />
     <None Remove="Assets\Fonts\pakenham-free.regular.ttf" />
     <None Remove="Assets\Fonts\Raleway-Regular.ttf" />
     <None Remove="Assets\Fonts\Raleway-SemiBold.ttf" />
     <None Remove="Assets\Images\addpatient.png" />
     <None Remove="Assets\Images\ambumatelogo.png" />
+    <None Remove="Assets\Images\cancelshiftbutton.png" />
     <None Remove="Assets\Images\kitlogo.png" />
     <None Remove="Assets\Images\logoutbutton.png" />
     <None Remove="Assets\Images\optionsbutton.png" />
@@ -33,6 +40,7 @@
     <EmbeddedResource Include="Assets\Fonts\Raleway-SemiBold.ttf" />
     <EmbeddedResource Include="Assets\Images\addpatient.png" />
     <EmbeddedResource Include="Assets\Images\ambumatelogo.png" />
+    <EmbeddedResource Include="Assets\Images\cancelshiftbutton.png" />
     <EmbeddedResource Include="Assets\Images\kitlogo.png" />
     <EmbeddedResource Include="Assets\Images\logoutbutton.png" />
     <EmbeddedResource Include="Assets\Images\optionsbutton.png" />
@@ -43,56 +51,57 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.1.2" />
-    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="3.1.9" />
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.466" />
+    <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.2.0" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="5.0.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
     <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.113.6" />
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1560" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1687" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="AddPatientFormPage.xaml.cs">
+    <Compile Update="View\AddPatientFormPage.xaml.cs">
       <DependentUpon>AddPatientFormPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="ActivePatientFormPage.xaml">
+    <EmbeddedResource Update="View\ActivePatientFormPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ActivePatientsPage.xaml">
+    <EmbeddedResource Update="View\ActivePatientsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="CompletedPatientsPage.xaml">
+    <EmbeddedResource Update="View\CompletedPatientsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="HomePage.xaml">
+    <EmbeddedResource Update="View\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="InactivePatientFormPage.xaml">
+    <EmbeddedResource Update="View\InactivePatientFormPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="InactivePatientsPage.xaml">
+    <EmbeddedResource Update="View\InactivePatientsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="KitPage.xaml">
+    <EmbeddedResource Update="View\KitPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="OptionsPage.xaml">
+    <EmbeddedResource Update="View\OptionsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="AddPatientFormPage.xaml">
+    <EmbeddedResource Update="View\AddPatientFormPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="PatientsPage.xaml">
+    <EmbeddedResource Update="View\PatientsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="ShiftPage.xaml">
+    <EmbeddedResource Update="View\ShiftPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="VehiclePage.xaml">
+    <EmbeddedResource Update="View\VehiclePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

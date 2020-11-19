@@ -31,7 +31,7 @@ namespace AmbuMate
         {
             base.OnAppearing();
             shiftData = App.currentShift;
-            if (shiftData.AttendantID == App.currentUser.ID && shiftData.ShiftStatus.Equals("Complete") == false)
+            if (shiftData!=null && shiftData.Id!=null)
             {
                 AttendantIDEntry.Text = shiftData.AttendantID.ToString();
                 if (shiftData.DriverID != 0) { DriverIDEntry.Text = shiftData.DriverID.ToString(); }
@@ -83,7 +83,7 @@ namespace AmbuMate
         {
             Shift shift = new Shift();
             {
-                if (App.currentShift.Id != null) { shift.Id = App.currentShift.Id; }
+                if (App.currentShift!=null && App.currentShift.Id != null) { shift.Id = App.currentShift.Id; }
                 if (int.TryParse(AttendantIDEntry.Text, out int AttendantID))
                 {
                     shift.AttendantID = AttendantID;

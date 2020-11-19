@@ -2,18 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AmbuMate.MainPage">
-
-    <StackLayout Margin="30,0" VerticalOptions="Center">
-        <Label Text="AmbuMate"
+    <StackLayout x:Name="containerStackLayout" Margin="30,0" VerticalOptions="Center">
+            <Label Text="AmbuMate"
                HorizontalOptions="CenterAndExpand"
                FontSize="50"
                FontFamily="Raleway-Regular.ttf"
                FontAttributes="Bold"/>
-        <Image x:Name="iconImage"
+            <Image x:Name="iconImage"
                    Aspect="AspectFit"
                    HorizontalOptions="FillAndExpand"
                    Margin="0,0,0,25"/>
-        <Entry x:Name="idEntry"
+            <Entry x:Name="idEntry"
                Placeholder="ID"
                Keyboard="Email"
                TextColor="Black"/>
@@ -27,6 +26,5 @@
                 BackgroundColor="{StaticResource DarkBlue}"
                 TextColor="White"
                 Margin="30,30,30,0"/>
-    </StackLayout>
-
+        </StackLayout>
 </ContentPage>
