@@ -11,6 +11,7 @@
                Padding="15"/>
     </NavigationPage.TitleView>
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout>
             <Entry x:Name="PatientReferenceEntry"
                    Placeholder="Patient Ref."
@@ -24,19 +25,31 @@
                    Style="{StaticResource EntryStyle}"/>
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition/>
                     <RowDefinition Height="80"/>
+                    <RowDefinition/>
                     <RowDefinition Height="80"/>
                 </Grid.RowDefinitions>
+                <Label Style="{StaticResource LabelStyle}"
+                       Text="Pick Up:"
+                       Grid.Row="0"/>
                 <Editor x:Name="PickupLocationEditor"
                     Placeholder="Enter Pickup Location..."
                     FontFamily="Raleway-Regular.ttf"
-                    AutoSize="TextChanges"/>
+                    AutoSize="TextChanges"
+                        Grid.Row="1"/>
+                <Label Style="{StaticResource LabelStyle}"
+                       Text="Drop Off:"
+                       Grid.Row="2"/>
                 <Editor x:Name="DropoffLocationEditor"
                     Placeholder="Enter Drop off Location..."
                     FontFamily="Raleway-Regular.ttf"
                     AutoSize="TextChanges"
-                        Grid.Row="1"/>
+                        Grid.Row="3"/>
             </Grid>
+            <Label Style="{StaticResource LabelStyle}"
+                       Text="Special Requirements:"
+                        />
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="75"/>
@@ -49,10 +62,12 @@
                 <Label Text="Infectious:"
                        Style="{StaticResource SwitchLabelStyle}"
                        Grid.Column="1"
+                       Grid.Row="0"
                        FontSize="18"
                        VerticalOptions="Center"/>
                 <Switch x:Name="InfectiousSwitch"
                         Grid.Column="1"
+                        Grid.Row="0"
                         HorizontalOptions="EndAndExpand"
                         Margin="10,0,15,0"
                         Style="{StaticResource SwitchStyle}"/>
@@ -63,6 +78,13 @@
                     Clicked="ActivatePatientButton_Clicked"
                     BackgroundColor="{StaticResource SecondaryBlue}"
                     TextColor="White"/>
+            <Button x:Name="CancelPatientButton"
+                    Text="Cancel Patient"
+                    Style="{StaticResource ButtonStyle}"
+                    Clicked="CancelPatientButton_Clicked"
+                    BackgroundColor="Red"
+                    TextColor="White"/>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

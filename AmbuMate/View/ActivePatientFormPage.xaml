@@ -95,19 +95,22 @@
                     />
             <Button     x:Name="completePatientBtn"
                         Text="Complete Patient"
-                        HorizontalOptions="CenterAndExpand"
-                        VerticalOptions="CenterAndExpand"
                         BackgroundColor="{StaticResource Purple}"
                         Clicked="completePatientBtn_Clicked"
                         WidthRequest="200"
-                        />
+                        TextColor="White"/>
                 <Button 
                          x:Name="setInactiveBtn"
                          Text="Set Patient to Inactive"
-                         HorizontalOptions="CenterAndExpand"
-                         VerticalOptions="CenterAndExpand"
                          BackgroundColor="{StaticResource SecondaryBlue}"
-                         Clicked="setInactiveBtn_Clicked"/>
+                         Clicked="setInactiveBtn_Clicked"
+                    TextColor="White"/>
+                <Button x:Name="CancelPatientButton"
+                    Text="Cancel Patient"
+                    Style="{StaticResource ButtonStyle}"
+                        Clicked="CancelPatientButton_Clicked"
+                    BackgroundColor="Red"
+                    TextColor="White"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

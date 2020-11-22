@@ -34,10 +34,8 @@ namespace AmbuMate
         //Reads AmbuMate database and fills App data fields with relevant shift information
         protected async override void OnAppearing()
         {
-            if (App.currentShift == null)
-            {
-                 Shift dbShift = (await App.MobileService.GetTable<Shift>().Where(s => s.AttendantID == App.currentUser.ID && (s.ShiftDate == DateTime.Today || s.ShiftDate == DateTime.Today.AddDays(-1)) && s.ShiftStatus == "Active").ToListAsync()).FirstOrDefault();
-                 
+            Shift dbShift = (await App.MobileService.GetTable<Shift>().Where(s => s.AttendantID == App.currentUser.ID && (s.ShiftDate == DateTime.Today || s.ShiftDate == DateTime.Today.AddDays(-1)) && s.ShiftStatus == "Active").ToListAsync()).FirstOrDefault();
+            
                 if (dbShift != null)
                 {
                     App.currentShift = dbShift;
@@ -46,7 +44,7 @@ namespace AmbuMate
                     App.currentVehicle = currentVehicle;
                     App.currentKit = currentKit;
                 }
-            }
+
             if (App.currentShift != null)
                 {
                 if (App.currentVehicle == null) {

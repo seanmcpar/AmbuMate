@@ -66,5 +66,10 @@ namespace AmbuMate
             };
             return patient;
         }
+
+        private void CancelPatientButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

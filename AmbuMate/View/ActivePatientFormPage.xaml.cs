@@ -79,5 +79,10 @@ namespace AmbuMate
             Patient.Update(currentPatient);
             Navigation.PopAsync();
         }
+
+        private void CancelPatientButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
