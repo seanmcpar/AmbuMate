@@ -15,13 +15,16 @@
             <Entry x:Name="PatientReferenceEntry"
                    Placeholder="Patient Ref."
                    Style="{StaticResource EntryStyle}"
-                   Margin="0,10,0,0"/>
+                   Margin="0,10,0,0"
+                   Keyboard="Numeric"/>
             <Entry x:Name="FirstNameEntry"
                    Placeholder="First Name"
-                   Style="{StaticResource EntryStyle}"/>
+                   Style="{StaticResource EntryStyle}"
+                   Keyboard="Text"/>
             <Entry x:Name="SurnameEntry"
                    Placeholder="Surname"
-                   Style="{StaticResource EntryStyle}"/>
+                   Style="{StaticResource EntryStyle}"
+                   Keyboard="Text"/>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>

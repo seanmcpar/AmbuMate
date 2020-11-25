@@ -69,7 +69,10 @@ namespace AmbuMate
 
         private void CancelPatientButton_Clicked(object sender, EventArgs e)
         {
-
+            currentPatient = PatientDetails();
+            currentPatient.Status = "Cancelled";
+            Patient.Update(currentPatient);
+            Navigation.PopAsync();
         }
     }
 }
