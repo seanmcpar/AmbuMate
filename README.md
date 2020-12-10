@@ -1,7 +1,10 @@
 # AmbuMate - Technical Documentation
 
 ## About
-AmbuMate is an Ambulance Crew Companion App. Essentially a mobile application designed to be used on a smartphone by an Ambulance Crew Member throughout their shift to assist the crew and ambulance service with data entry and storage. The mobile application will be accompanied by a web application that allows the Ambulance Service's Operations staff to view and manage the data entered by crews.
+AmbuMate is an Ambulance Crew Companion App. Essentially a mobile application designed to be used on a 
+smartphone by an Ambulance Crew Member throughout their shift to assist the crew and ambulance service with 
+data entry and storage. The mobile application will be accompanied by a web application that allows the 
+Ambulance Service's Operations staff to view and manage the data entered by crews.
 
 ## Instructions for use - Basic Shift Outline
 1. Log in using your Staff ID and password.
