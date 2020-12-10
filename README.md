@@ -40,6 +40,10 @@ AmbuMate is an Ambulance Crew Companion App. Essentially a mobile application de
 * You can cancel your current shift by pressing the cancel shift button in the Options Page.
 * You can manually sync the app with the database by pressing the sync button in the Options Page.
 * You can cancel a patient by pressing the cancel patient button when viewing an Active or Inactive patient's details.
-   
+
+## Software Used - Mobile Application
+I have been developing the Mobile Application in Visual Studio 2019 using Xamarin Forms.
+The AmbuMate project is a Cross-Platform Mobile Application coded in C# and XAML.
+C# for functionality and XAML for layout.
 
    
