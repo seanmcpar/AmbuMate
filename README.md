@@ -45,7 +45,7 @@ Ambulance Service's Operations staff to view and manage the data entered by crew
 * You can cancel a patient by pressing the cancel patient button when viewing an Active or Inactive patient's details.  
 
 ## Design - Mobile Application
-*Software Used*   
+**Software Used**   
 I have been developing the Mobile Application in Visual Studio 2019 using Xamarin Forms.  
 The AmbuMate project is a Cross-Platform Mobile Application coded in C# and XAML.  
 C# for functionality and XAML for layout.  
