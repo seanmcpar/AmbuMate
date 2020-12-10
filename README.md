@@ -33,6 +33,13 @@ AmbuMate is an Ambulance Crew Companion App. Essentially a mobile application de
    the Kit Page and input final mileage and Vehicle Notes on the Vehicle Page.
 18. When your Patients, Kit and Vehicle Pages are complete, you can enter your shift end time and any
    final notes you have for your shift in the Shift Page and press the complete Shift Button.
+
+## Instructions for use - Extra Features
+* The options button can be found at the top right of the HomePage.
+* You can log out of the application by pressing the log out button in the Options Page.
+* You can cancel your current shift by pressing the cancel shift button in the Options Page.
+* You can manually sync the app with the database by pressing the sync button in the Options Page.
+* You can cancel a patient by pressing the cancel patient button when viewing an Active or Inactive patient's details.
    
 
    
