@@ -53,8 +53,13 @@ namespace AmbuMate
         protected override bool OnBackButtonPressed()
         {
             App.currentShift = CurrentShiftDetails();
-            Navigation.PopAsync();
+            //Task<bool> answer = DisplayAlert("Cancel Shift", "Would you like to cancel your current shift?", "Yes", "No");
+            //if (answer.Result) 
+            { 
+                Navigation.PopAsync();
+            }
             return true;
+
         }
 
         private void SaveBtn_Clicked(object sender, EventArgs e)

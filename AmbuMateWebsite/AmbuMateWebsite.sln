@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbuMateWebsite", "AmbuMateWebsite.csproj", "{9FD9AEC3-0DDF-4B46-88B1-3F01B446D272}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FD9AEC3-0DDF-4B46-88B1-3F01B446D272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FD9AEC3-0DDF-4B46-88B1-3F01B446D272}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FD9AEC3-0DDF-4B46-88B1-3F01B446D272}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FD9AEC3-0DDF-4B46-88B1-3F01B446D272}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {227E2E10-6582-48E6-AD38-9CF9A8B263E6}
+	EndGlobalSection
+EndGlobal
