@@ -44,10 +44,19 @@ Ambulance Service's Operations staff to view and manage the data entered by crew
 * You can manually sync the app with the database by pressing the sync button in the Options Page.  
 * You can cancel a patient by pressing the cancel patient button when viewing an Active or Inactive patient's details.  
 
-## Design - Mobile Application
+## Design - Mobile Application  
+  
 **Software Used**   
 I have been developing the Mobile Application in Visual Studio 2019 using Xamarin Forms.  
 The AmbuMate project is a Cross-Platform Mobile Application coded in C# and XAML.  
 C# for functionality and XAML for layout.  
+  
+**Design Pattern**
+*Domain-Driven-Design*
+The AmbuMate mobile application is designed with DDD(Domain-Driven-Design) in mind. In DDD, the structure and language  
+of the object-oriented code match the business domain. When using DDD it is important to focus on the real-world business that we    
+are trying to assist with software, as opposed to focusing too heavily on the technology itself. For example, the entities we refer   
+to in our code (Vehicle, Kit, Patient etc.) are in fact the same real world entities that exist in the business domain that we are   
+assisting and therefore our code and design is not too far abstracted from the reality of the physical business.
 
    
