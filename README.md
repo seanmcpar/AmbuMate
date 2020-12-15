@@ -59,4 +59,6 @@ are trying to assist with software, as opposed to focusing too heavily on the te
 to in our code (Vehicle, Kit, Patient etc.) are in fact the same real world entities that exist in the business domain that we are   
 assisting and therefore our code and design is not too far abstracted from the reality of the physical business.
 
+**GUI**
+![Log In screen](./Images/GUILoginScreesnhot.png)
    
