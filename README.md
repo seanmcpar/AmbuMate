@@ -57,8 +57,24 @@ The AmbuMate mobile application is designed with DDD(Domain-Driven-Design) in mi
 of the object-oriented code match the business domain. When using DDD it is important to focus on the real-world business that we    
 are trying to assist with software, as opposed to focusing too heavily on the technology itself. For example, the entities we refer   
 to in our code (Vehicle, Kit, Patient etc.) are in fact the same real world entities that exist in the business domain that we are   
-assisting and therefore our code and design is not too far abstracted from the reality of the physical business.
+assisting and therefore our code and design is not too far abstracted from the reality of the physical business.  
+  
+**Use-Case Diagram**  
+<img src="Images/UseCaseMobile.png" alt="Login Screen" width="700"/>  
 
-**GUI**
-<img src="Images/GUILoginScreenshot.jpg" alt="drawing" width="100"/>
+## GUI Screenshots - Mobile Application  
+<img src="Images/GUILoginScreenshot.jpg" alt="Login Screen" width="220"/>
+<img src="Images/GUIHomeScreenshot.jpg" width="220"/>
+<img src="Images/GUIVehicleScreesnhot.jpg" width="220"/>
+<img src="Images/GUIKitScreenshot.jpg" width="220"/>
+<img src="Images/GUIKitScreenshotContinued.jpg" width="220"/>  
+<img src="Images/GUIPatientsScreenshot.jpg" width="220"/>
+<img src="Images/GUINewPatientScreenshot.jpg" width="220"/>
+<img src="Images/GUIPatientScreenshot.jpg" width="220"/>
+<img src="Images/GUIActivePatientScreenshot.jpg" width="220"/>
+<img src="Images/GUIActivePatientScreenshotContinued.jpg" width="220"/>  
+<img src="Images/GUIOptionsScreenshot.jpg" width="220"/>  
+    
+
+
    
