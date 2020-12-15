@@ -60,5 +60,5 @@ to in our code (Vehicle, Kit, Patient etc.) are in fact the same real world enti
 assisting and therefore our code and design is not too far abstracted from the reality of the physical business.
 
 **GUI**
-![Log In screen](./Images/GUILoginScreesnhot.png)
+![Log In screen](./Images/GUILoginScreennshot.png)
    
