@@ -85,6 +85,13 @@ assisting and therefore our code and design is not too far abstracted from the r
 <img src="Images/GUIActivePatientScreenshotContinued.jpg" width="220"/>  
 <img src="Images/GUIOptionsScreenshot.jpg" width="220"/>  
 <img src="Images/GUILoginLoadingScreenshot.jpg" width="220"/>    
+  
 
+## Development - Web Application  
+### Software Used  
+I have been developing the Web Application side of ambumate in Visual Studio 2019.
+The Website is an ASP.NET Core Application.  
 
+### The Web Development Stack  
+<img src="Images/WebDevStack.jpg" width="650"/> 
    
