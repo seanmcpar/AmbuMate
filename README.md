@@ -1,6 +1,6 @@
 # AmbuMate - Technical Documentation
 
-## About
+### About
 AmbuMate is an Ambulance Crew Companion App. Essentially a mobile application designed to be used on a    
 smartphone by an Ambulance Crew Member throughout their shift to assist the crew and ambulance service with   
 data entry and storage. The mobile application will be accompanied by a web application that allows the   
@@ -44,14 +44,24 @@ Ambulance Service's Operations staff to view and manage the data entered by crew
 * You can manually sync the app with the database by pressing the sync button in the Options Page.  
 * You can cancel a patient by pressing the cancel patient button when viewing an Active or Inactive patient's details.  
 
-## Design - Mobile Application  
+## Development - Mobile Application  
   
-**Software Used**   
+### Software Used  
 I have been developing the Mobile Application in Visual Studio 2019 using Xamarin Forms.  
 The AmbuMate project is a Cross-Platform Mobile Application coded in C# and XAML.  
 C# for functionality and XAML for layout.  
+
+### Packages/Libraries Used  
+***Microsoft.Azure.Mobile.Client***  
+https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/  
+Allows my Xamarin Mobile application to communicate with my Azure Database by providing features that allow my Mobile Application to communicate with a Microsoft Azure Mobile Web App which then reads and writes to my Azure SQL database.  
+
+***Acr.UserDialogs***  
+https://www.nuget.org/packages/Acr.UserDialogs/  
+Provides a stylish looking loading screen while the user is being logged into the mobile application. This loading screen l=also prevents the user from continuing to enter details or pressing the Log in button again.
+
   
-**Design Pattern**  
+### Design Pattern  
 *Domain-Driven-Design:*  
 The AmbuMate mobile application is designed with DDD(Domain-Driven-Design) in mind. In DDD, the structure and language  
 of the object-oriented code match the business domain. When using DDD it is important to focus on the real-world business that we    
@@ -74,7 +84,7 @@ assisting and therefore our code and design is not too far abstracted from the r
 <img src="Images/GUIActivePatientScreenshot.jpg" width="220"/>
 <img src="Images/GUIActivePatientScreenshotContinued.jpg" width="220"/>  
 <img src="Images/GUIOptionsScreenshot.jpg" width="220"/>  
-    
+<img src="Images/GUILoginLoadingScreenshot.jpg" width="220"/>    
 
 
    
