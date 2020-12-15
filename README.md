@@ -102,5 +102,5 @@ The Website is an ASP.NET Core Application.
 
 ## Database  
 ### Schema  
-<img src="Images/DatabaseSchema.png" width="700"/>
+<img src="Images/DatabaseSchema.PNG" width="600"/>
    
