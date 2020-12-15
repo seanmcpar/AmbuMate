@@ -98,5 +98,9 @@ The Website is an ASP.NET Core Application.
 <img src="Images/UsecaseWebsite.png" width="700"/> 
 
 ### The Web Development Stack  
-<img src="Images/WebDevStack.jpg" width="650"/> 
+<img src="Images/WebDevStack.jpg" width="650"/>  
+
+## Database  
+### Schema  
+<img src="Images/DatabaseSchema.png" width="700"/>
    
