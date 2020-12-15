@@ -58,7 +58,7 @@ Allows my Xamarin Mobile application to communicate with my Azure Database by pr
 
 ***Acr.UserDialogs***  
 https://www.nuget.org/packages/Acr.UserDialogs/  
-Provides a stylish looking loading screen while the user is being logged into the mobile application. This loading screen l=also prevents the user from continuing to enter details or pressing the Log in button again.
+Provides a stylish looking loading screen while the user is being logged into the mobile application. This loading screen also prevents the user from continuing to enter details or pressing the Log in button again.
 
   
 ### Design Pattern  
@@ -89,8 +89,13 @@ assisting and therefore our code and design is not too far abstracted from the r
 
 ## Development - Web Application  
 ### Software Used  
-I have been developing the Web Application side of ambumate in Visual Studio 2019.
+I have been developing the Web Application side of AmbuMate in Visual Studio 2019.  
+Developing the Website in Visual Studio keep it consistent with the Mobile App which is also developed in Visual Studio and stays within the .NET Framework.  
+The Database used is also hosted Microsoft Azure which has great integration with Visual Studio as it's in the Microsoft Family.   
 The Website is an ASP.NET Core Application.  
+
+### Use Case Diagram  
+<img src="Images/UsecaseWebsite.png" width="700"/> 
 
 ### The Web Development Stack  
 <img src="Images/WebDevStack.jpg" width="650"/> 
