@@ -60,5 +60,5 @@ to in our code (Vehicle, Kit, Patient etc.) are in fact the same real world enti
 assisting and therefore our code and design is not too far abstracted from the reality of the physical business.
 
 **GUI**
-![Login Screen](Images/GUILoginScreenshot.jpg =100x20)
+<img src="Images/LdrawGUILoginScreenshot.jpg" alt="drawing" width="100"/>
    
