@@ -118,6 +118,16 @@ namespace AmbuMate
             return vehicle;
         }
 
-
+        private async void CompleteBtn_Clicked(object sender, EventArgs e)
+        {
+            bool answer = await DisplayAlert("Complete Vehicle", "Would you like to complete the vehicle  form?", "Yes", "No");
+            if (answer)
+            {
+                vehicleData = CurrentVehicleDetails();
+                vehicleData.Status = "Complete";
+                Vehicle.Update(vehicleData);
+                await Navigation.PopAsync();
+            }
+        }
     }
 }

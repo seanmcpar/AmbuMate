@@ -113,5 +113,21 @@ namespace AmbuMate
             }
             return shift;
         }
+
+        private async void CompleteBtn_Clicked(object sender, EventArgs e)
+        {
+            bool answer = await DisplayAlert("Complete Shift", "Would you like to complete your shift?", "Yes", "No");
+            if (answer)
+            {
+                shiftData = CurrentShiftDetails();
+                shiftData.ShiftStatus = "Complete";
+                Shift.Update(shiftData);
+                App.currentShift = null;
+                App.currentVehicle = null;
+                App.currentKit = null;
+                App.currentPatients = null;
+                await Navigation.PopAsync();
+            }
+        }
     }
 }

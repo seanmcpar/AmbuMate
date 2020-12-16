@@ -95,10 +95,12 @@ namespace AmbuMate
                 if (currentKit.Id != null)
                 {
                     Kit.Update(currentKit);
+                    DisplayAlert("Success", "Kit Details Updated.", "Ok");
                 }
                 else
                 {
                     Kit.Insert(currentKit);
+                    DisplayAlert("Success", "Kit Details Saved.", "Ok");
                 }
             }
             catch (Exception ex)
@@ -149,5 +151,16 @@ namespace AmbuMate
             return kit;
         }
 
+        private async void CompleteBtn_Clicked(object sender, EventArgs e)
+        {
+            bool answer = await DisplayAlert("Complete Kit", "Would you like to complete the kit form?", "Yes", "No");
+            if (answer)
+            {
+                kitData = CurrentKitDetails();
+                kitData.Status = "Complete";
+                Kit.Update(kitData);
+                await Navigation.PopAsync();
+            }
+        }
     }
 }

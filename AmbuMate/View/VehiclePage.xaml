@@ -136,6 +136,11 @@
                     Clicked="SaveBtn_Clicked"
                     Text="Save"
                     Style="{StaticResource ButtonStyle}"/>
+            <Button     x:Name="CompleteBtn"
+                            Clicked="CompleteBtn_Clicked"
+                            Text="Complete Vehicle"
+                            Style="{StaticResource ButtonStyle}"
+                        BackgroundColor="{StaticResource SecondaryBlue}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -67,12 +67,16 @@ namespace AmbuMate
             return patient;
         }
 
-        private void CancelPatientButton_Clicked(object sender, EventArgs e)
+        private async void CancelPatientButton_Clicked(object sender, EventArgs e)
         {
-            currentPatient = PatientDetails();
-            currentPatient.Status = "Cancelled";
-            Patient.Update(currentPatient);
-            Navigation.PopAsync();
+            bool answer = await DisplayAlert("Cancel Shift", "Would you like to cancel this patient?", "Yes", "No");
+            if (answer)
+            {
+                currentPatient = PatientDetails();
+                currentPatient.Status = "Cancelled";
+                Patient.Update(currentPatient);
+                await Navigation.PopAsync();
+            }
         }
     }
 }
