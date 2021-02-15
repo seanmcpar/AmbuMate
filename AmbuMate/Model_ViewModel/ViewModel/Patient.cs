@@ -39,7 +39,7 @@ namespace AmbuMate.Entities
                 //OnPropertyChanged("ShiftID");
             }
         }
-
+         
         private string status;
 
         public string Status
