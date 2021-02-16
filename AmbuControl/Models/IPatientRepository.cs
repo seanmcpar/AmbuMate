@@ -9,6 +9,6 @@ namespace AmbuControl.Models
     {
         IEnumerable<Patient> AllPatients { get; }
         Patient GetPatientById(string PatientId);
-        Patient GetPatientByReference(int PatientReference);
+        List<Patient> GetPatientByReference(int PatientReference);
     }
 }
