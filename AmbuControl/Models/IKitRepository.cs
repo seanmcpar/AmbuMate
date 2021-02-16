@@ -7,5 +7,7 @@ namespace AmbuControl.Models
 {
     public interface IKitRepository
     {
+        IEnumerable<Kit> AllKits { get; }
+        Kit GetKitById(string KitId);
     }
 }

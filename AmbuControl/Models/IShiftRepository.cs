@@ -7,5 +7,8 @@ namespace AmbuControl.Models
 {
     public interface IShiftRepository
     {
+
+        IEnumerable<Shift> AllShifts { get; }
+        Shift GetShiftById(string ShiftfId);
     }
 }

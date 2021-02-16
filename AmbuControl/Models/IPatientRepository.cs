@@ -7,5 +7,8 @@ namespace AmbuControl.Models
 {
     public interface IPatientRepository
     {
+        IEnumerable<Patient> AllPatients { get; }
+        Patient GetPatientById(string PatientId);
+        Patient GetPatientByReference(int PatientReference);
     }
 }

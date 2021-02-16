@@ -7,5 +7,7 @@ namespace AmbuControl.Models
 {
     public interface IStaffRepository
     {
+        IEnumerable<Staff> AllStaff { get; }
+        Staff GetStaffById(int StaffId);
     }
 }

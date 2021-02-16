@@ -5,9 +5,7 @@ using System.Threading.Tasks;
 
 namespace AmbuControl.Models
 {
-    public interface IVehicleRepository
+    public class ShiftRepository
     {
-        IEnumerable<Vehicle> AllVehicles { get; }
-        Vehicle GetVehicleById(string VehicleId);
     }
 }
