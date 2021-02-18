@@ -74,7 +74,7 @@ assisting and therefore our code and design is not too far abstracted from the r
 
 ## GUI Screenshots - Mobile Application  
 <img src="Images/GUILoginScreenshot.jpg" alt="Login Screen" width="220"/>
-<img src="Images/GUIHomeScreenshot.jpg" width="220"/>
+<center><img src="Images/GUIHomeScreenshot.jpg" width="220"/></center>
 <img src="Images/GUIVehicleScreesnhot.jpg" width="220"/>
 <img src="Images/GUIKitScreenshot.jpg" width="220"/>
 <img src="Images/GUIKitScreenshotContinued.jpg" width="220"/>  
