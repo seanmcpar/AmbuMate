@@ -151,7 +151,6 @@ namespace AmbuMate.Entities
         }
         
         private string notes;
-
         public string Notes
         {
             get { return notes; }

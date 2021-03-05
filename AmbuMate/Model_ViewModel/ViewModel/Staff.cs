@@ -57,6 +57,17 @@ namespace AmbuMate.Entities
             }
         }
 
+        private string email { get; set; }
+        
+        public string Email {
+            
+            get { return email; }
+            set 
+            { 
+                email = value;
+            }
+        }
+
         private string passwordHash;
 
         public string PasswordHash
