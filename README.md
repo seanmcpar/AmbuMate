@@ -1,4 +1,4 @@
-# AmbuMate - Technical Documentation
+# AmbuMate 
 
 ### About
 AmbuMate is an Ambulance Crew Companion App. Essentially a mobile application designed to be used on a    
